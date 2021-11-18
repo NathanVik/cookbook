@@ -1,3 +1,8 @@
+/* Variables */
+:root {
+  --primary: #9db8a7;
+}
+
 .App {
   text-align: center;
 }

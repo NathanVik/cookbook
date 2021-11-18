@@ -1,7 +1,23 @@
-nav {
+.navbar {
     font-size: 20px;
     font-weight: bold;
     color: white;
-    background-color: blue;
+    background-color: var(--primary);
     border: 1px solid red;
+    display: flex;
+
+}
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.navbar ul {
+    list-style: none;
+}
+
+.nav .nav-link {
+    text-decoration: none;
+    display: block;
 }
