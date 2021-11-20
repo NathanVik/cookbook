@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 class NavBar extends Component {
     render() { 
         return (
-            <nav>
-                <div>
+            <nav className="navbar">
+                <div className="navigation">
                     <Link className="navbar-brand" to="/">CookBook</Link>
 
-                    <ul>
+                    <ul className="menu">
                         <li>
                             <Link className="nav-link" to="/home">
                                 Home

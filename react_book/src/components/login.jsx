@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Link } from "react-router-dom";
+
 class Login extends Component {
     render() { 
         return (
@@ -13,6 +15,8 @@ class Login extends Component {
             <input type="password" name="password"></input>
 
             <button className="register">Login</button>
+
+            <Link className="nav-link active" to="/home">Not a user? Register here.</Link>
         </div>
         );
     }
