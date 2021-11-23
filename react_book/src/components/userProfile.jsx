@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
+import UserService from '../services/userService';
 
-class UserProfile extends Component {
+
+
+class UserProfile extends React.Component {
+    state = { 
+        userid: '',
+        user: [],
+     }
+
     render() { 
         return (
-            <div>
-                <h1>Username Account</h1>
-                <div className="user">
-                    <h3>User account info</h3>
-                </div>
-                <div className="user-recipes">
-                    <h3>List of User Recipes</h3>
-                </div>
+        
+        <div>PUT USER PROFILE INFO HERE</div>
 
-
-            </div>
-        );
+        )
     }
+
+    async componentDidMount() {
+        let service = new UserService(); // Gets User info for selected User
+        let data = await service.getUserDetail(1); // PLACEHOLDER ID - MUST CHANGE TO SELECTED PROFILE ID
+
+    this.setState({ user: data })
+    }
+
 }
  
-export default UserProfile;
