@@ -3,13 +3,17 @@ from config import db, parse_json
 from pymongo import cursor, results
 from flask_cors import CORS
 
+
 app = Flask(__name__)
 CORS(app)
 
+login_manager = LoginManager()
 
+### ROUTE USED TO CREATE INITIAL FLASK APP ###
 @app.route("/")
 def hello_world():
     return "<h1>Hello, World!</h1>"
+
 
 @app.route('/api/users')
 def get_users():
