@@ -11,15 +11,14 @@ class NavBar extends Component {
 
                     <ul className="menu">
                         <li>
-                            <Link className="nav-link" to="/home">
-                                Home
-                            </Link>
+                            <Link className="nav-link" to="/home">Home</Link>
                         </li>
 
                         <li>
-                            <Link className="nav-link" to="/login">
-                                Login
-                            </Link>
+                            <Link className="nav-link" to="/login">Login</Link>
+                        </li>
+                        <li className="right-side">
+                            <Link className="nav-link" to="/profile">My Profile</Link>
                         </li>
                     </ul>
                 </div>

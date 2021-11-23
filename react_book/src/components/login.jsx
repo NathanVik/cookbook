@@ -16,7 +16,7 @@ class Login extends Component {
 
             <button className="register">Login</button>
 
-            <Link className="nav-link active" to="/home">Not a user? Register here.</Link>
+            <Link className="nav-link" to="/register">Not a user? Create account here.</Link>
         </div>
         );
     }
