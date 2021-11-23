@@ -64,6 +64,7 @@ recipe_detail_data = [
 
 ]
 
+
 x2 = mycol2.insert_many(recipe_data)
 x3 = mycol3.insert_many(recipe_detail_data)
 

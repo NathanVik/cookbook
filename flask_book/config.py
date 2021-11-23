@@ -2,7 +2,6 @@ import pymongo
 import json
 from bson import ObjectId
 
-
 # connection string
 mongo_url = "mongodb://localhost:27017"
 
@@ -11,6 +10,8 @@ client = pymongo.MongoClient(mongo_url)
 # use <dbName>
 db = client.get_database("cookbook")
 
+# secret key
+# app.secret_key = "thisisasecret"
 
 class JSONEncoder(json.JSONEncoder):
     def default(self, o):

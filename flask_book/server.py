@@ -2,12 +2,12 @@ from flask import Flask, abort, request
 from config import db, parse_json
 from pymongo import cursor, results
 from flask_cors import CORS
-
+from flask_login import LoginManager
 
 app = Flask(__name__)
 CORS(app)
+login_manager = LoginManager(app)
 
-login_manager = LoginManager()
 
 ### ROUTE USED TO CREATE INITIAL FLASK APP ###
 @app.route("/")
@@ -26,7 +26,7 @@ def get_users():
 
 
 
-#### GET USER PROFILE INFO ###
+### GET USER PROFILE INFO ###
 @app.route("/api/users/<id>") #Use ID 
 def get_user_profile(id):
     user = db.users.find_one({"_id": id})
@@ -50,3 +50,11 @@ def save_user():
 
     db.users.insert_one(user)
     return parse_json(user)
+
+### SignUp Testing ###
+from user import routes
+
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
