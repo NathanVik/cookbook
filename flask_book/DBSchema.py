@@ -4,6 +4,8 @@ myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 
 mydb = myclient["cookbook"]
 mycol = mydb["users"]
+mycol2 = mydb["recipes"]
+mycol3 = mydb["details"]
 
 user_data = [
     {
@@ -61,3 +63,9 @@ recipe_detail_data = [
     },
 
 ]
+
+x2 = mycol2.insert_many(recipe_data)
+x3 = mycol3.insert_many(recipe_detail_data)
+
+print(x2.inserted_ids)
+print(x3.inserted_ids)
