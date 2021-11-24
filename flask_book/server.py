@@ -27,7 +27,7 @@ def get_users():
 
 
 ### GET USER PROFILE INFO ###
-@app.route("/api/users/<id>") #Use ID 
+@app.route("/api/user/<id>") #Use ID 
 def get_user_profile(id):
     user = db.users.find_one({"_id": id})
     if not user:

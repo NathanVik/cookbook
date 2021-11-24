@@ -12,7 +12,11 @@ class UserProfile extends React.Component {
     render() { 
         return (
         
-        <div>PUT USER PROFILE INFO HERE</div>
+        <div>PUT USER PROFILE INFO HERE
+
+            <div>{ this.state.user.username }</div>
+
+        </div>
 
         )
     }
@@ -25,4 +29,6 @@ class UserProfile extends React.Component {
     }
 
 }
- 
+
+
+export default UserProfile;

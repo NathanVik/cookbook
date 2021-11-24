@@ -11,13 +11,13 @@ class RecipeService {
 
     // GET RECIPE CARDS FROM SPECIFIC USER
     async getUserRecipes(userID) {
-        let response = await axios.get(ServerUrl + 'api/recipecards/user/' + userID);
+        let response = await axios.get(ServerUrl + '/api/recipecards/user/' + userID);
         return response.data;
     }
 
     // GET RECIPES BY FOLLOWED USERS
     async getFollowedRecipes(userID) {
-        let response = await axios.get(ServerUrl + 'api/recipecards/following/' + userID);
+        let response = await axios.get(ServerUrl + '/api/recipecards/following/' + userID);
         return response.data;
     }
 

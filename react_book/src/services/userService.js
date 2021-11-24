@@ -6,7 +6,7 @@ class UserService {
     
     //Get User Data -- for user detail page
     async getUserDetail(userID) {
-        let response = await axios.get(ServerUrl + 'api/user/' + userID);
+        let response = await axios.get(ServerUrl + '/api/user/' + userID);
         return response.data;
     }
 
