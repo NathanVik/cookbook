@@ -1,0 +1,27 @@
+.recipeCard{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 6px;
+    max-width: 500px;
+    min-width: 370px;
+    margin: 1rem;
+}
+@media(max-width: 768px){
+    .recipeCard{
+        flex-direction: column;
+    }
+}
+
+.recipeCard img{
+    max-width: fit-content;
+    min-width: 200px;
+}
+.card-info{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    justify-content: center;
+    margin-left: 1.5rem;
+}

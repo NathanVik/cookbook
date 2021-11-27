@@ -3,11 +3,17 @@ from config import db, parse_json
 from pymongo import cursor, results
 from flask_cors import CORS
 from flask_login import LoginManager
+from werkzeug.utils import secure_filename
+
 
 app = Flask(__name__)
 CORS(app)
 login_manager = LoginManager(app)
 
+
+UPLOAD_FOLDER = './static/img'
+ALLOWED_EXTENSIONS = set(['jpg', 'jpeg', 'png', 'gif'])
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 ### ROUTE USED TO CREATE INITIAL FLASK APP ###
 @app.route("/")
@@ -48,8 +54,12 @@ def save_user():
     if not "password" in user:
         return parse_json({"error":"password is required", "success":False })
 
+    #### ADD PROFILE PICTURE UPLOAD FUNCTION -- RUN AN upload_file()
+
     db.users.insert_one(user)
     return parse_json(user)
+
+
 
 ### SignUp Testing ###
 from user import routes
