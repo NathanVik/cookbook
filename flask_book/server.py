@@ -4,11 +4,13 @@ from pymongo import cursor, results
 from flask_cors import CORS
 from flask_login import LoginManager
 from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
 
 
 app = Flask(__name__)
 CORS(app)
 login_manager = LoginManager(app)
+load_dotenv() 
 
 
 UPLOAD_FOLDER = './static/img'
