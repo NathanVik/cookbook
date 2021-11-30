@@ -5,16 +5,22 @@
     background-color: var(--primary);
     border: 1px solid red;
     display: flex;
+    flex-direction: row;
 
 }
 
 .navigation {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .navbar ul {
     list-style: none;
+}
+.navbar ul li{
+    margin-right: 1rem;
 }
 
 .nav .nav-link {
@@ -24,4 +30,8 @@
 
 .right-side {
     margin-left: auto;
+}
+.menu {
+    display: flex;
+    flex-direction: row;
 }
