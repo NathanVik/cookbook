@@ -7,6 +7,8 @@
   --light: #fbfcfa;
   --dark-text: #253946;
   --shadow: rgba(19, 41, 28, 0.3) 0px 1px 2px 0px, rgba(19, 41, 28, 0.15) 0px 1px 3px 1px;
+
+  --rounded-corner: 6px;
 }
 
 .App {

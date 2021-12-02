@@ -1,0 +1,36 @@
+.reg-card {
+    /* border: 1px solid red; */
+    background-color: var(--light);
+    border-radius: var(--rounded-corner);
+    box-shadow: var(--shadow);
+    padding: 2rem 4rem;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.reg-card h2 {
+    font-size: 3.4em;
+    margin-bottom: 4rem;
+    color: var(--primary);
+}
+
+
+
+.btn-reg {
+    background-color: var(--primary);
+    color: var(--light);
+    padding: .5rem 1rem;
+    font-size: 1.2em;
+    border: 1px solid var(--primary);
+    border-radius: var(--rounded-corner);
+    box-shadow: var(--shadow);
+    transition: all .1s ease-in-out;
+}
+
+.btn-reg:hover {
+    cursor: pointer;
+}
+.btn-reg:active {
+    transform: scale(0.97);
+}

@@ -8,7 +8,7 @@ class Login extends Component {
     state = { 
         username: '',
         password: '',
-     }
+    }
     
     handleInputChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
@@ -28,22 +28,24 @@ class Login extends Component {
 
     render() { 
         return (
-        <div className="login-card">
-            <h2>Login</h2>
+            <div className="login-container">
+                <div className="login-card">
+                    <h2>CookBook Login</h2>
 
-            <div>
-                <label>Username</label>
-                <input type="text" name="username" onChange={this.handleInputChange}></input>
+                    <div className="label-input">
+                        <label>Username</label>
+                        <input type="text" name="username" onChange={this.handleInputChange}></input>
+                    </div>
+                    <div className="label-input">
+                        <label>Password</label>
+                        <input type="password" name="password" onChange={this.handleInputChange}></input>
+                    </div>
+                    <div className="label-input">
+                        <button className="btn-login" onClick={ this.handleLogin }>Login</button>
+                        <Link className="reg-link" to="/register">Not a user? Create account here.</Link>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label>Password</label>
-                <input type="password" name="password" onChange={this.handleInputChange}></input>
-            </div>
-            <div>
-                <button className="btn-login" onClick={ this.handleLogin }>Login</button>
-                <Link className="nav-link" to="/register">Not a user? Create account here.</Link>
-            </div>
-        </div>
         );
     }
 

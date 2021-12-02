@@ -1,11 +1,73 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 75vh;
+}
+
 .login-card {
-    border: 1px solid red;
-    background-color: var(--light)
+    /* border: 1px solid red; */
+    background-color: var(--light);
+    border-radius: var(--rounded-corner);
+    box-shadow: var(--shadow);
+    padding: 2rem 4rem;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-card h2 {
+    font-size: 3.4em;
+    margin-bottom: 4rem;
+    color: var(--primary);
+}
+
+.label-input {
+    display: flex;
+    flex-direction: column;
+    margin: 0 2rem;
+    margin-bottom: 2rem;
+}
+
+.label-input label {
+    font-weight: Bold;
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+.label-input input {
+    border: none;
+    padding: 8px;
+    border-radius: var(--rounded-corner);
+    box-shadow: var(--shadow);
+}
+
+.label-input .reg-link {
+    text-decoration: none;
+    color: var(--dark-text);
+    margin-top: 1.5rem;
+    text-align: left;
+}
+
+.label-input .reg-link:hover {
+    color: var(--primary);
 }
 
 .btn-login {
     background-color: var(--primary);
     color: var(--light);
     padding: .5rem 1rem;
-    font-size: 2em;
+    font-size: 1.2em;
+    border: 1px solid var(--primary);
+    border-radius: var(--rounded-corner);
+    box-shadow: var(--shadow);
+    transition: all .1s ease-in-out;
 }
+
+.btn-login:hover {
+    cursor: pointer;
+}
+.btn-login:active {
+    transform: scale(0.97);
+}
+
