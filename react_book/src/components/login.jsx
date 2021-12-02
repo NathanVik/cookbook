@@ -9,13 +9,31 @@ class Login extends Component {
         password: '',
      }
     
+    handleInputChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
+        };
+
+    handleLogin = async () => {
+        const username = this.state.username
+        const password = this.state.password
+
+        let user = { username, password };
+        // send user to server
+        let response = await axios.post(ServerUrl + '/api/user/login', user);
+        //set the state of the user and store in local
+        localStorage.setItem('user', response.data)   
+        }
+
+
     render() { 
+     
         return (
         <div>
             <h2>Login</h2>
 
-            <label>Username</label>
-            <input type="text" name="username" onChange={this.handleInputChange}></input>
+            
+                <label>Password</label>
+                <input type="password" name="password" onChange={this.handleInputChange}></input>
 
             <label>Password</label>
             <input type="password" name="password" onChange={this.handleInputChange}></input>
@@ -25,18 +43,6 @@ class Login extends Component {
             <Link className="nav-link" to="/register">Not a user? Create account here.</Link>
         </div>
         );
-    }
-
-handleInputChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-    };
-handleLogin = () => {
-    let user = { username, password };
-    // send user to server
-    response = await axios.post(ServerUrl + '/api/user/login', user);
-    //set the state of the user and store in local
-    setUser(response.data)
-    localStorage.setItem('user', response.data)   
     }
 
 }
