@@ -3,7 +3,8 @@
     font-weight: bold;
     color: white;
     background-color: var(--primary);
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     display: flex;
     flex-direction: row;
 

@@ -11,9 +11,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom"
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <NavBar></NavBar>
+      <NavBar></NavBar>
 
+      <div className="App">
         <Switch>
           <Route path="/" exact component={LandingPage}></Route>
           <Route path="/home" exact component={Home}></Route>

@@ -3,6 +3,8 @@
 /* Variables */
 :root {
   --primary: #9db8a7;
+  --background: #f4f7f9;
+  --light-card: #fbfcfa;
 }
 
 .App {
