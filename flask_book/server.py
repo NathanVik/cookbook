@@ -31,11 +31,13 @@ def get_users():
     return parse_json(users)
 
 @app.route('/api/user/login', methods=['POST'])
-def user_login(user):
+def user_login():
     user = request.get_json() 
-    profile = db.users.find_one( {"username": user.username} )
-    if profile.password === user.password:
-        return 
+    profile = db.users.find_one( {"username": user["username"]} )
+    if profile["password"] == user["password"]:
+        return parse_json(profile)
+    else:
+        return parse_json({"error":"Username of password Incorrect", "success":False })
     
 
 
