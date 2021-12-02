@@ -7,18 +7,18 @@ class NavBar extends Component {
         return (
             <nav className="navbar">
                 <div className="navigation">
-                    <Link className="navbar-brand" to="/">CookBook</Link>
+                    <Link className="navbar-brand link" to="/">CookBook</Link>
 
                     <ul className="menu">
                         <li>
-                            <Link className="nav-link" to="/home">Home</Link>
+                            <Link className="nav-link link" to="/home">Home</Link>
                         </li>
 
                         <li>
-                            <Link className="nav-link" to="/login">Login</Link>
+                            <Link className="nav-link link" to="/login">Login</Link>
                         </li>
                         <li className="right-side">
-                            <Link className="nav-link" to="/profile">My Profile</Link>
+                            <Link className="nav-link link" to="/profile">My Profile</Link>
                         </li>
                     </ul>
                 </div>

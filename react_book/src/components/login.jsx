@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import "./login.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 const ServerUrl = "http://127.0.0.1:5000";
@@ -12,20 +11,18 @@ class Login extends Component {
     
     render() { 
         return (
-        <div className="login-card">
+        <div>
             <h2>Login</h2>
-            
-            <div>
-                <label>Username</label>
-                <input type="text" name="username" onChange={this.handleInputChange}></input>
-            </div>
 
-            <
-                <label>Password</label>
-                <input type="password" name="password" onChange={this.handleInputChange}></input>
+            <label>Username</label>
+            <input type="text" name="username" onChange={this.handleInputChange}></input>
 
-                <button className="register" onClick={ this.handleLogin }>Login</button>
-                <Link className="nav-link" to="/register">Not a user? Create account here.</Link>
+            <label>Password</label>
+            <input type="password" name="password" onChange={this.handleInputChange}></input>
+
+            <button className="register" onClick={ this.handleLogin }>Login</button>
+
+            <Link className="nav-link" to="/register">Not a user? Create account here.</Link>
         </div>
         );
     }
@@ -33,14 +30,14 @@ class Login extends Component {
 handleInputChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
     };
-// async handleLogin = () => {
-//     let user = { username, password };
-//     // send user to server
-//     response = await axios.post(ServerUrl + '/api/user/login', user);
-//     //set the state of the user and store in local
-//     setUser(response.data)
-//     localStorage.setItem('user', response.data)   
-//     }
+handleLogin = () => {
+    let user = { username, password };
+    // send user to server
+    response = await axios.post(ServerUrl + '/api/user/login', user);
+    //set the state of the user and store in local
+    setUser(response.data)
+    localStorage.setItem('user', response.data)   
+    }
 
 }
  
