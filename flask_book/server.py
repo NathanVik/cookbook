@@ -2,15 +2,13 @@ from flask import Flask, abort, request
 from config import db, parse_json
 from pymongo import cursor, results
 from flask_cors import CORS
-from flask_login import LoginManager
 from werkzeug.utils import secure_filename
-from dotenv import load_dotenv
+
 
 
 app = Flask(__name__)
 CORS(app)
-login_manager = LoginManager(app)
-load_dotenv() 
+
 
 
 UPLOAD_FOLDER = './static/img'
@@ -31,6 +29,15 @@ def get_users():
         users.append(user)
 
     return parse_json(users)
+
+@app.route('/api/user/login', methods=['POST'])
+def user_login(user):
+    user = request.get_json() 
+    profile = db.users.find_one( {"username": user.username} )
+    if profile.password === user.password:
+        return 
+    
+
 
 
 
@@ -60,11 +67,6 @@ def save_user():
 
     db.users.insert_one(user)
     return parse_json(user)
-
-
-
-### SignUp Testing ###
-from user import routes
 
 
 
