@@ -11,7 +11,7 @@ class RecipeService {
 
     // GET RECIPE CARDS FROM SPECIFIC USER
     async getUserRecipes(userID) {
-        let response = await axios.get(ServerUrl + '/api/' + userID + '/recipes');
+        let response = await axios.get(ServerUrl + '/api/user/' + userID + '/recipes');
         return response.data;
     }
 
