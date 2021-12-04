@@ -103,6 +103,55 @@ def test_data(id):
     return parse_json(results)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Landing Page Recipe List ###
+@app.route('/api/recipecards/recent')
+def get_recent_recipes():
+    cursor = db.recipes.find({})
+    recipes = []
+    for recipe in cursor:
+        recipes.append(recipe)
+
+    return parse_json(recipes)
+
 if __name__ == "__main__":
     app.run(debug=True)
 

@@ -18,6 +18,7 @@
 
 .login-card h2 {
     font-size: 3.4em;
+    font-weight: bold;
     margin-bottom: 4rem;
     color: var(--primary);
 }
@@ -32,14 +33,16 @@
 .label-input label {
     font-weight: Bold;
     text-align: left;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 .label-input input {
     border: none;
+    background-color: var(--background);
     padding: 8px;
     border-radius: var(--rounded-corner);
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */
+    border: 1px solid var(--dark-text);
 }
 
 .label-input .reg-link {
@@ -70,4 +73,3 @@
 .btn-login:active {
     transform: scale(0.97);
 }
-
