@@ -42,15 +42,6 @@ def user_login():
 
 
 
-
-### GET USER PROFILE INFO ###
-@app.route("/api/user/<id>") #Use ID 
-def get_user_profile(id):
-    user = db.users.find_one({"_id": id})
-    if not user:
-        abort(404)
-    return parse_json(user)
-
 ### Create new User ###
 @app.route('/api/users', methods=['POST'])
 def save_user():
@@ -71,6 +62,26 @@ def save_user():
     return parse_json(user)
 
 
+### GET USER PROFILE INFO ###
+@app.route("/api/user/<id>") #Use ID 
+def get_user_profile(id):
+    user = db.users.find_one({"_id": id})
+    if not user:
+        abort(404)
+    return parse_json(user)
+
+## Get User's Recipe List
+@app.route('/api/user/<id>/recipes')
+def get_user_recipes(id):
+    cursor = db.recipes.find({'user_id': id})
+    recipes = []
+    for recipe in cursor:
+        recipes.append(recipe)
+    return parse_json(recipes)
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
+
