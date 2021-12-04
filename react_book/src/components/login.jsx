@@ -22,7 +22,7 @@ class Login extends Component {
         // send user to server
         let response = await axios.post(ServerUrl + '/api/user/login', user);
         //set the state of the user and store in local
-        localStorage.setItem('user', response.data)   
+        localStorage.setItem('user', JSON.stringify(response.data))   
         }
 
 

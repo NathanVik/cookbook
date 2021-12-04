@@ -23,7 +23,8 @@ class UserProfile extends React.Component {
 
     async componentDidMount() {
         let service = new UserService(); // Gets User info for selected User
-        let data = await service.getUserDetail(1); // PLACEHOLDER ID - MUST CHANGE TO SELECTED PROFILE ID
+        let myuser = JSON.parse(localStorage.getItem('user')); // retrieves JSON string from local storage
+        let data = await service.getUserDetail(myuser['_id']); // Takes _id from the local storage user and passes to server
 
     this.setState({ user: data })
     }
