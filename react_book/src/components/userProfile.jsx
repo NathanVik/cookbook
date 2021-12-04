@@ -29,7 +29,7 @@ class UserProfile extends React.Component {
         let data = await service1.getUserDetail(myuser['_id']); // Takes _id from the local storage user and passes to server
         
         let service2 = new RecipeService();
-        let myrecipes = await service2.getUserRecipes(myuser['_id'])
+        let myrecipes = await service2.getUserRecipes(myuser['_id']) // server call to retrieve all recipes where user_id is the logged in user
 
 
     this.setState({ user: data, recipes:myrecipes })

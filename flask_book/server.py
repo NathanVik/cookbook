@@ -1,5 +1,6 @@
 from flask import Flask, abort, request
 from config import db, parse_json
+import pymongo
 from pymongo import cursor, results
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
@@ -79,7 +80,27 @@ def get_user_recipes(id):
         recipes.append(recipe)
     return parse_json(recipes)
 
-
+@app.route("/api/test/<id>") #TESTING API FOR DATA
+def test_data(id):
+    results = []
+    recipes = db.recipes.aggregate([
+        {
+            '$lookup': {
+                'from': "users",
+                'localField': "user_id",
+                'foreignField': "_id",
+                'as': "fromUsers"
+            }
+        },
+        {
+            '$replaceRoot': {'newRoot': { '$mergeObjects': [{ '$arrayElemAt': ["fromUsers", 0 ]}, "$$ROOT" ] }}
+        },
+        { '$project': {'fromUsers': 0 }}
+    ])
+    cursor = recipes.find({'_id': id})
+    for recipe in recipes:
+        results.append(recipe)
+    return parse_json(results)
 
 
 if __name__ == "__main__":
