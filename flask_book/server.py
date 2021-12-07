@@ -33,18 +33,19 @@ def get_users():
 
 @app.route('/api/user/login', methods=['POST'])
 def user_login():
-    user = request.get_json() 
+    user = request.get_json(force=True) 
     profile = db.users.find_one( {"username": user["username"]} )
 
-    if profile["username"] == user["username"]:
-        if profile["password"] == user["password"]:
-            return parse_json(profile)
+    if profile is not None:
+        if profile["username"] == user["username"]:
+            if profile["password"] == user["password"]:
+                return parse_json(profile)
+            else:
+                abort(404)
         else:
             abort(404)
-            # return parse_json({"error":"Username of password Incorrect", "success":False })
     else:
         abort(404)
-
 
 
 ### Create new User ###
