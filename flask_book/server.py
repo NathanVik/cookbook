@@ -91,54 +91,11 @@ def test_data(id):
                 'foreignField': "_id",
                 'as': "fromUsers"
             }
-        },
-        {
-            '$replaceRoot': {'newRoot': { '$mergeObjects': [{ '$arrayElemAt': ["fromUsers", 0 ]}, "$$ROOT" ] }}
-        },
-        { '$project': {'fromUsers': 0 }}
+        }
     ])
-    cursor = recipes.find({'_id': id})
     for recipe in recipes:
         results.append(recipe)
     return parse_json(results)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
