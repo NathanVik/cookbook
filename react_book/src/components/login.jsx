@@ -29,7 +29,7 @@ class Login extends Component {
         let errorMessage = this.state.errorMessage
         if (response.status === 200) {
             this.props.history.push("/")
-        } else if (response.status === 500 ) {
+        } else if (response.status === 404 ) {
             this.setState({errorMessage: true})
             setTimeout(() => {
                 this.setState({errorMessage: false});
@@ -45,7 +45,7 @@ class Login extends Component {
             <div className="login-container">
                 <div className="login-card">
                     <h2>CookBook Login</h2>
-
+                    
                     { this.state.errorMessage ? <div className="error-message">Invalid Login! Please try again.</div> : null }
                     <div className="label-input">
                         <label>Username</label>
