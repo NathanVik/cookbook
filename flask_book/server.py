@@ -35,11 +35,15 @@ def get_users():
 def user_login():
     user = request.get_json() 
     profile = db.users.find_one( {"username": user["username"]} )
-    if profile["password"] == user["password"]:
-        return parse_json(profile)
+
+    if profile["username"] == user["username"]:
+        if profile["password"] == user["password"]:
+            return parse_json(profile)
+        else:
+            abort(404)
+            # return parse_json({"error":"Username of password Incorrect", "success":False })
     else:
-        return parse_json({"error":"Username of password Incorrect", "success":False })
-    
+        abort(404)
 
 
 

@@ -8,7 +8,7 @@ class Login extends Component {
     state = { 
         username: '',
         password: '',
-        errorMessage: '',
+        errorMessage: false,
     }
     
     handleInputChange = (event) => {
@@ -29,9 +29,11 @@ class Login extends Component {
         let errorMessage = this.state.errorMessage
         if (response.status === 200) {
             this.props.history.push("/")
-        } else {
-            this.setState({errorMessage: "Invalid Login! Please try again."})
-            console.log(errorMessage)
+        } else if (response.status === 500 ) {
+            this.setState({errorMessage: true})
+            setTimeout(() => {
+                this.setState({errorMessage: false});
+            }, 3500 );
         }
         
 
@@ -44,7 +46,7 @@ class Login extends Component {
                 <div className="login-card">
                     <h2>CookBook Login</h2>
 
-                    <div className="error-message">{ this.state.errorMessage }</div>
+                    { this.state.errorMessage ? <div className="error-message">Invalid Login! Please try again.</div> : null }
                     <div className="label-input">
                         <label>Username</label>
                         <input type="text" name="username" onChange={this.handleInputChange}></input>
