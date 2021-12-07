@@ -12,6 +12,7 @@ class UserRegistration extends Component {
         selectedFile: null,
     };
     
+
     handleInputChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
         };
@@ -19,13 +20,14 @@ class UserRegistration extends Component {
         this.setState({ selectedFile: event.target.files[0] });
         };
     handleSubmit = async () => {
-        const username = this.state.username
-        const password = this.state.password
-        const email = this.state.email
-        let user = { username, email, password }
-        
-        let response = await axios.post(ServerUrl + '/api/users', user)
-        console.log(response)
+        var formData = new FormData();
+        formData.append('username', this.state.username);
+        formData.append('email', this.state.email);
+        formData.append('password', this.state.password);
+        formData.append('file', this.state.selectedFile);
+
+        //let response = await axios.post(ServerUrl + '/api/users', formData);
+        console.log(formData);
 
     };
 
@@ -53,6 +55,10 @@ class UserRegistration extends Component {
                     <div className="label-input">
                         <label>Re-type Password</label>
                         <input type="password" name="password2" onChange={this.handleInputChange}></input>
+                    </div>
+                    <div className="label-input">
+                        <label>Upload a Profile Picture</label>
+                        <input type="file" name="file" onChange={this.handleFileChange}></input>
                     </div>
                     <button className="register btn-reg" onClick={this.handleSubmit}>Create Account</button>
                 </div>
