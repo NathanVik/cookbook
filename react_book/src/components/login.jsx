@@ -8,6 +8,7 @@ class Login extends Component {
     state = { 
         username: '',
         password: '',
+        errorMessage: '',
     }
     
     handleInputChange = (event) => {
@@ -22,16 +23,28 @@ class Login extends Component {
         // send user to server
         let response = await axios.post(ServerUrl + '/api/user/login', user);
         //set the state of the user and store in local
-        localStorage.setItem('user', JSON.stringify(response.data))   
+        localStorage.setItem('user', JSON.stringify(response.data))
+        
+        // Redirect
+        let errorMessage = this.state.errorMessage
+        if (response.status === 200) {
+            this.props.history.push("/")
+        } else {
+            this.setState({errorMessage: "Invalid Login! Please try again."})
+            console.log(errorMessage)
+        }
+        
+
         }
 
 
-    render() { 
+    render() {
         return (
             <div className="login-container">
                 <div className="login-card">
                     <h2>CookBook Login</h2>
 
+                    <div className="error-message">{ this.state.errorMessage }</div>
                     <div className="label-input">
                         <label>Username</label>
                         <input type="text" name="username" onChange={this.handleInputChange}></input>
