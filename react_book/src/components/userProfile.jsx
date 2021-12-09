@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './userProfile.css';
 import UserService from '../services/userService';
 import RecipeService from '../services/recipeService';
 import RecipeCard from './recipeCard';
@@ -13,13 +14,23 @@ class UserProfile extends React.Component {
         let itemsToDisplay = this.state.recipes;
 
         return (
-        
-        <div>PUT USER PROFILE INFO HERE
+            <div className="user-profile">
 
-            <div>{ this.state.user.username }</div>
-            <div>{ itemsToDisplay.map( obj => <RecipeCard key={obj._id} data={obj}></RecipeCard> ) }</div>
-        </div>
+                <section className="user-container-card">
+                    <div className="">
+                        <img src="#" className="profile-picture"></img>
+                        <h2>{ this.state.user.username }</h2>
+                    </div>
+                    <div>
+                        <p>Recipes Posted: #{this.state.recipes.length}</p>
+                    </div>
+                </section>
 
+                <section className="posts-container">
+                    <div>{ itemsToDisplay.map( obj => <RecipeCard key={obj._id} data={obj}></RecipeCard> ) }</div>
+                </section>
+
+            </div>
         )
     }
 
