@@ -29,7 +29,7 @@ def hello_world():
     return "<h1>Hello, World!</h1>"
 
 
-@app.route('/api/users')
+@app.route('/api/usertest')
 def get_users():
     cursor = db.users.find({})
     users = []
@@ -60,14 +60,14 @@ def user_login():
 def save_user():
     user = request.get_json() #gets the dictionary 
     #validations
-    if not "username" in user:
-        return parse_json({"error":"Username is required", "success":False })
+    # if not "username" in user:
+    #     return parse_json({"error":"Username is required", "success":False })
     
-    if not "email" in user:
-        return parse_json({"error":"email is required", "success":False })
+    # if not "email" in user:
+    #     return parse_json({"error":"email is required", "success":False })
     
-    if not "password" in user:
-        return parse_json({"error":"password is required", "success":False })
+    # if not "password" in user:
+    #     return parse_json({"error":"password is required", "success":False })
 
     #### ADD PROFILE PICTURE UPLOAD FUNCTION -- RUN AN upload_file()
     if 'file' not in request.files:
@@ -79,7 +79,7 @@ def save_user():
         # empty file without a filename.
     if file.filename == '':
             flash('No selected file')
-            return redirect(request.url)
+
     if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
