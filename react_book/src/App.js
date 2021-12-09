@@ -5,6 +5,7 @@ import LandingPage from "./components/landingPage";
 import Login from './components/login';
 import UserRegistration from './components/userRegistration';
 import UserProfile from './components/userProfile';
+import CreateRecipe from './components/createRecipe';
 
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" exact component={Login}></Route>
           <Route path="/register" exact component={UserRegistration}></Route>
           <Route path="/profile" exact component={UserProfile}></Route>
+          <Route path="/create-recipe" component={CreateRecipe}></Route>
         </Switch>
       </div>
     </BrowserRouter>

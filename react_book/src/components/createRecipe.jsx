@@ -1,30 +1,42 @@
 import React, { Component } from 'react';
-
+import "./createRecipe.css"
 
 class CreateRecipe extends React.Component {
     state = {
         selectedFile: null,
 
+        recipeTitle: "",
+        recipeIngredients: "",
+        recipeInstructions: "",
+
     }
     render() { 
-        return <div>
-            <form>
-            
-            <label>Recipe Title</label>
-            <input type="text"></input>
+        return (
+            <div className="create-container">
+                <form className="create-recipe-form">
+                    <h2>Create a New Recipe</h2>
 
-            <label>Ingredients</label>
-            <textarea></textarea>
+                    <div>
+                        <label>Recipe Title</label>
+                        <input type="text" name="recipeTitle" value={this.state.recipeTitle} ></input>
+                    </div>
+                    <div>
+                        <label>Ingredients</label>
+                        <textarea type="" name="recipeIngredients" value={this.state.recipeIngredients}></textarea>
+                    </div>
+                    <div>
+                        <label>Instructions</label>
+                        <textarea type="" name="recipeInstructions" value={this.state.recipeInstructions}></textarea>
+                    </div>
+                    <div>
+                        <label>Upload a picture!</label>
+                        <input type="file" onChange={this.fileSelectedHandler}></input>
+                    </div>
 
-            <label>Directions</label>
-            <textarea></textarea>
-
-            <label>Upload a picture!</label>
-            <input type="file" onChange={this.fileSelectedHandler}></input>
-            </form>
-            <button onClick={this.formSendHandler}>Post Recipe</button>
-
-        </div>;
+                    <button onClick={this.formSendHandler}>Post Recipe</button>
+                </form>
+            </div>
+        );
     }
 
     fileSelectedhandler = event => {

@@ -1,0 +1,15 @@
+.create-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 75vh;
+}
+
+.create-recipe-form {
+    border: 1px solid red;
+    background-color: var(--light);
+    border-radius: var(--rounded-corner);
+    box-shadow: var(--shadow);
+    padding: 2rem 4rem;
+    width: 500px;
+}
