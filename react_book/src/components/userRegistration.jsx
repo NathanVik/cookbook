@@ -20,14 +20,17 @@ class UserRegistration extends Component {
         this.setState({ selectedFile: event.target.files[0] });
         };
     handleSubmit = async () => {
-        var formData = new FormData();
-        formData.append('username', this.state.username);
-        formData.append('email', this.state.email);
-        formData.append('password', this.state.password);
-        formData.append('file', this.state.selectedFile);
+        
+        
+        const username = this.state.username
+        const password = this.state.password
+        const email = this.state.email
+        let file = this.state.selectedFile
+        
+        let myForm = { username, password, email, file };
 
-        //let response = await axios.post(ServerUrl + '/api/users', formData);
-        console.log(formData);
+        let response = await axios.post(ServerUrl + '/api/users', myForm);
+        // CREATE ERROR MESSAGES ETC
 
     };
 
