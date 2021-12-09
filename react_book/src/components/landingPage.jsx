@@ -4,18 +4,18 @@ import RecipeService from '../services/recipeService';
 
 class LandingPage extends Component {
     state = {
-        recipes: [],
+        posts: [],
       };
 
 
     render() {
 
-        let recipesToDisplay = this.state.recipes;
+        let recipesToDisplay = this.state.posts;
 
 
         return (
             <div>
-                <h1>Top Recipes of The Week: {this.state.recipes.length}</h1>
+                <h1>Top Recipes of The Week: {this.state.posts.length}</h1>
 
                 <div className="recipeCard-list">
                     {recipesToDisplay.map((obj) => (

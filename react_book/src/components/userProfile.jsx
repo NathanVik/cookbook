@@ -27,7 +27,13 @@ class UserProfile extends React.Component {
                 </section>
 
                 <section className="posts-container">
-                    <div>{ itemsToDisplay.map( obj => <RecipeCard key={obj._id} data={obj}></RecipeCard> ) }</div>
+                    <div className="recipe-create">
+                        <button className="">Create</button>
+                        <button className="">Delete</button>
+                    </div>
+                    <div>
+                        { itemsToDisplay.map( obj => <RecipeCard key={obj._id} data={obj}></RecipeCard> ) }
+                    </div>
                 </section>
 
             </div>
