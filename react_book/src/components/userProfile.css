@@ -1,12 +1,20 @@
 .user-profile {
     display: flex;
+    justify-content: space-between;
 }
 
 .user-container-card {
     border: 1px solid red;
-    flex: 1;
+    background-color: var(--light);
+    /* flex: 1; */
 }
 
 .post-container {
     flex: 5;
+}
+
+.user-recipe-manager {
+    background-color: var(--light);
+    border: 1px solid red;
+    padding: 1rem;
 }

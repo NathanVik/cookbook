@@ -24,9 +24,8 @@ class Login extends Component {
     let response = await axios.post(ServerUrl + "/api/user/login", user);
     //set the state of the user and store in local
     localStorage.setItem("user", JSON.stringify(response.data));
-
     // Redirect
-    let errorMessage = this.state.errorMessage;
+    // let errorMessage = this.state.errorMessage;
     if (response.status === 200) {
       this.props.history.push("/");
     } else if (response.status === 404) {
@@ -48,6 +47,9 @@ class Login extends Component {
               Invalid Login! Please try again.
             </div>
           ) : null}
+
+          <div className="error-message">Invalid Login! Please try again.</div>
+
           <div className="label-input">
             <label>Username</label>
             <input

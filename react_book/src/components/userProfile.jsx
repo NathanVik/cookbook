@@ -27,7 +27,7 @@ class UserProfile extends React.Component {
                 </section>
 
                 <section className="posts-container">
-                    <div className="recipe-create">
+                    <div className="user-recipe-manager">
                         <button className="">Create</button>
                         <button className="">Delete</button>
                     </div>
