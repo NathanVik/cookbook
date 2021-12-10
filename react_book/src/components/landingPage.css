@@ -1,0 +1,47 @@
+
+
+.image-container {
+    /* position: absolute;
+    left: 0;
+    right: 0; */
+    position: relative;
+    margin-top: 2px;
+}
+
+.cover-text {
+    color: var(--light);
+    /* text-shadow: var(--text-outline); */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    font-size: 6em;
+    white-space: nowrap;
+    background-color: rgba(157, 184, 167, 0.5);
+}
+
+.cookbook-cover {
+    max-width: 100%;
+    height: auto;
+    opacity: .75;
+}
+
+.message {
+    margin-top: 1rem;
+    font-size: 3em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message img {
+    width: 170px;
+    height: auto;
+}
+
+.recipeCard-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

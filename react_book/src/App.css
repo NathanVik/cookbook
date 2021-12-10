@@ -5,9 +5,10 @@
   --primary: #9db8a7;
   --background: #f4f7f9;
   --light: #fbfcfa;
-  --dark-text: #253946;
-  --shadow: rgba(19, 41, 28, 0.3) 0px 1px 2px 0px, rgba(19, 41, 28, 0.15) 0px 1px 3px 1px;
+  --dark-text: #172d20;
 
+  --shadow: rgba(19, 41, 28, 0.3) 0px 1px 2px 0px, rgba(19, 41, 28, 0.15) 0px 1px 3px 1px;
+  --text-outline: -1px 0 var(--dark-text), 0 1px var(--dark-text), 1px 0 var(--dark-text), 0 -1px var(--dark-text);
   --rounded-corner: 6px;
 }
 
@@ -23,11 +24,9 @@ ul {
   list-style: none;
 }
 
-
-/* BASIC CSS FOR APP DISPLAY */
-
-.recipeCard-list{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.card {
+  background-color: var(--light);
+  border-radius: var(--rounded-corner);
+  box-shadow: var(--shadow);
+  padding: 2rem 4rem;
 }
