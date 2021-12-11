@@ -24,7 +24,7 @@ class UserRegistration extends Component {
         myForm.append('username', this.state.username)
         myForm.append('email', this.state.email)
         myForm.append('password', this.state.password)
-        myForm.append('file', this.state.selectedFile)
+        myForm.append('profile', this.state.selectedFile)
         
         // const username = this.state.username
         // const password = this.state.password
@@ -34,7 +34,7 @@ class UserRegistration extends Component {
         
 
         console.log(myForm)
-        let response = await axios.post(ServerUrl + '/api/users', myForm);
+        let response = await axios.post(ServerUrl + '/api/users', myForm, { 'Content-Type': 'multipart/form-data' });
         // CREATE ERROR MESSAGES ETC
         console.log(response)
     };

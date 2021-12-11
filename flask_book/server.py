@@ -58,7 +58,7 @@ def user_login():
 ### Create new User ###
 @app.route('/api/users', methods=['POST'])
 def save_user():
-    user = request.form #gets the form data
+    user = request.form.to_dict() #gets the form data
     #validations
     # if not "username" in user:
     #     return parse_json({"error":"Username is required", "success":False })
@@ -85,7 +85,7 @@ def save_user():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             
 
-
+    print(user)
     db.users.insert_one(user)
     return parse_json(user)
 
