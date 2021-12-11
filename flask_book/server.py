@@ -58,7 +58,7 @@ def user_login():
 ### Create new User ###
 @app.route('/api/users', methods=['POST'])
 def save_user():
-    user = request.get_json() #gets the dictionary 
+    user = request.form #gets the form data
     #validations
     # if not "username" in user:
     #     return parse_json({"error":"Username is required", "success":False })
@@ -83,6 +83,7 @@ def save_user():
     if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            
 
 
     db.users.insert_one(user)
@@ -100,11 +101,26 @@ def get_user_profile(id):
 ## Get User's Recipe List
 @app.route('/api/user/<id>/recipes')
 def get_user_recipes(id):
-    cursor = db.recipes.find({'user_id': id})
-    recipes = []
-    for recipe in cursor:
-        recipes.append(recipe)
-    return parse_json(recipes)
+    results = []
+    recipes = db.recipes.aggregate([
+        {
+            '$lookup': {
+                'from': "users",
+                'localField': "user_id",
+                'foreignField': "_id",
+                'as': "fromUsers"
+            }
+        }, {
+            '$unwind': '$fromUsers'
+        }
+
+    ])
+    for recipe in recipes:
+        if recipe["user_id"] == id:
+            results.append(recipe)
+    return parse_json(results)
+
+
 
 @app.route("/api/test/<id>") #TESTING API FOR DATA
 def test_data(id):
@@ -117,10 +133,14 @@ def test_data(id):
                 'foreignField': "_id",
                 'as': "fromUsers"
             }
+        }, {
+            '$unwind': '$fromUsers'
         }
+
     ])
     for recipe in recipes:
-        results.append(recipe)
+        if recipe["user_id"] == id:
+            results.append(recipe)
     return parse_json(results)
 
 
@@ -128,7 +148,7 @@ def test_data(id):
 ### Landing Page Recipe List ###
 @app.route('/api/recipecards/recent')
 def get_recent_recipes():
-    cursor = db.recipes.find({})
+    cursor = db.recipes.find({}).limit(6)
     recipes = []
     for recipe in cursor:
         recipes.append(recipe)
