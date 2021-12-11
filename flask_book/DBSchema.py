@@ -6,6 +6,7 @@ mydb = myclient["cookbook"]
 mycol = mydb["users"]
 mycol2 = mydb["recipes"]
 mycol3 = mydb["details"]
+mycol4 = mydb["likes"]
 
 user_data = [
     {
@@ -64,9 +65,24 @@ recipe_detail_data = [
 
 ]
 
+user_liked_data = [
+    {
+        "_id": "1",
+        "user_id": "1",
+        "recipe_id": "3",
+    },
+    {
+        "_id": "2",
+        "user_id": "2",
+        "recipe_id": "1"
+    },
+]
 
-x2 = mycol2.insert_many(recipe_data)
-x3 = mycol3.insert_many(recipe_detail_data)
 
-print(x2.inserted_ids)
-print(x3.inserted_ids)
+# x2 = mycol2.insert_many(recipe_data)
+# x3 = mycol3.insert_many(recipe_detail_data)
+x4 = mycol4.insert_many(user_liked_data)
+
+# print(x2.inserted_ids)
+# print(x3.inserted_ids)
+print(x4.inserted_ids)

@@ -7,7 +7,7 @@ import UserRegistration from './components/userRegistration';
 import UserProfile from './components/userProfile';
 import CreateRecipe from './components/createRecipe';
 
-import { BrowserRouter, Route, Switch } from "react-router-dom"
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
