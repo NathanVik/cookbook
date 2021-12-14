@@ -1,13 +1,12 @@
+/*  NOTE: Used card class located in App.css  */
 .recipeCard{
-    background-color: var(--light);
     display: flex;
     flex-direction: row;
     padding: 1rem;
-    box-shadow: var(--shadow);
-    border-radius: var(--rounded-corner);
     max-width: 500px;
     min-width: 370px;
     margin: 1rem;
+    text-align: left;
 }
 @media(max-width: 768px){
     .recipeCard{
@@ -27,6 +26,14 @@
     margin-left: 1.5rem;
 }
 
+.card-header {
+    display: flex;
+}
+
 .like-icon {
     color: #BD8378;
+}
+
+.btn-icon {
+    border: 1px solid red;
 }
