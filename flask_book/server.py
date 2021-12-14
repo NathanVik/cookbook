@@ -5,11 +5,16 @@ import os
 from pymongo import cursor, results
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
-
+import uuid
 
 
 app = Flask(__name__)
-CORS(app)
+
+CORS(app, resources = {
+    "/api/*": {
+        "origins": "*"
+    }
+})
 
 
 
@@ -81,13 +86,15 @@ def save_user():
             flash('No selected file')
 
     if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
+            filename = uuid.uuid4().hex
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             
-
+    user['profilepic'] = filename
     print(user)
     db.users.insert_one(user)
-    return parse_json(user)
+    response = parse_json(user)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 ### GET USER PROFILE INFO ###
