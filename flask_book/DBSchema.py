@@ -26,6 +26,9 @@ user_data = [
         "username": "testuser3",
         "email": "testuser1@mail.com",
         "password": "abc123",
+        "likes": [
+            1, 3, 5, 6
+        ]
     },
 ]
 
