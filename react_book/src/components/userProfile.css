@@ -6,7 +6,13 @@
 .user-container-card {
     border: 1px solid red;
     background-color: var(--light);
+    padding: 4rem;
     /* flex: 1; */
+}
+
+.profile-picture {
+    max-height: 130px;
+    width: 100%;
 }
 
 .post-container {

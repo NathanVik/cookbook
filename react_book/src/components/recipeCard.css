@@ -37,3 +37,7 @@
 .btn-icon {
     border: 1px solid red;
 }
+
+.btn-icon:hover {
+    cursor: pointer;
+}

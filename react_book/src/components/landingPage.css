@@ -5,7 +5,7 @@
     left: 0;
     right: 0; */
     position: relative;
-    margin-top: 2px;
+    margin-top: calc(-2rem + 2px)
 }
 
 .cover-text {
