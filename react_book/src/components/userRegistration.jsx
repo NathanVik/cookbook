@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./userRegistration.css";
 import axios from "axios";
-const ServerUrl = "http://127.0.0.1:5000";
+const ServerUrl = 'http://127.0.0.1:5000';
 
 class UserRegistration extends Component {
     state = { 

@@ -3,7 +3,7 @@ from config import db, parse_json
 import pymongo
 import os
 from pymongo import cursor, results
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
 import uuid
 
@@ -62,6 +62,7 @@ def user_login():
 
 ### Create new User ###
 @app.route('/api/users', methods=['POST'])
+@cross_origin()
 def save_user():
     user = request.form.to_dict() #gets the form data
     #validations
@@ -75,11 +76,10 @@ def save_user():
     #     return parse_json({"error":"password is required", "success":False })
 
     #### ADD PROFILE PICTURE UPLOAD FUNCTION -- RUN AN upload_file()
-    if 'file' not in request.files:
+    if 'profile' not in request.files:
             flash('No file part')
             return redirect(request.url)
-    
-    file = request.files['file']
+    file = request.files['profile']
         # If the user does not select a file, the browser submits an
         # empty file without a filename.
     if file.filename == '':
@@ -93,7 +93,6 @@ def save_user():
     print(user)
     db.users.insert_one(user)
     response = parse_json(user)
-    response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
 
