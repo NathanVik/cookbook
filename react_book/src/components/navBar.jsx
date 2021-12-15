@@ -6,14 +6,9 @@ class NavBar extends Component {
         state = {
                     isLoggedIn: false,
                 };
-        checkLogin = () => {
-            if (localStorage.getItem('user') != null )
-                this.setState({ isLoggedIn: true })
-            else
-                this.setState({ isLoggedIn: false })
-        }
+       
 
-        // ADD A COMPONENT DID UPDATE CALL TO RECHECK STATE
+       
         render() { 
         return (
             <nav className="navbar">

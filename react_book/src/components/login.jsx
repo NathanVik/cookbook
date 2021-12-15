@@ -15,25 +15,28 @@ class Login extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleLogin = async () => {
+  handleLogin = () => {
     const username = this.state.username;
     const password = this.state.password;
 
     let user = { username, password };
-    // send user to server
-    let response = await axios.post(ServerUrl + "/api/user/login", user);
-    //set the state of the user and store in local
-    localStorage.setItem("user", JSON.stringify(response.data));
-    // Redirect
-    // let errorMessage = this.state.errorMessage;
-    if (response.status === 200) {
-      this.props.history.push("/");
-    } else if (response.status === 404) {
-      this.setState({ errorMessage: true });
-      setTimeout(() => {
-        this.setState({ errorMessage: false });
-      }, 3500);
-    }
+    this.context.handleLogin(user);
+    
+    
+    // // send user to server
+    // let response = await axios.post(ServerUrl + "/api/user/login", user);
+    // //set the state of the user and store in local
+    // localStorage.setItem("user", JSON.stringify(response.data));
+    // // Redirect
+    // // let errorMessage = this.state.errorMessage;
+    // if (response.status === 200) {
+    //   this.props.history.push("/");
+    // } else if (response.status === 404) {
+    //   this.setState({ errorMessage: true });
+    //   setTimeout(() => {
+    //     this.setState({ errorMessage: false });
+    //   }, 3500);
+    
   };
 
   render() {
@@ -48,7 +51,7 @@ class Login extends Component {
             </div>
           ) : null}
 
-          <div className="error-message">Invalid Login! Please try again.</div>
+
 
           <div className="label-input">
             <label>Username</label>
