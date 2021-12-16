@@ -6,7 +6,7 @@ mydb = myclient["cookbook"]
 mycol = mydb["users"]
 mycol2 = mydb["recipes"]
 mycol3 = mydb["details"]
-mycol4 = mydb["likes"]
+# mycol4 = mydb["likes"]
 
 user_data = [
     {
@@ -14,21 +14,30 @@ user_data = [
         "username": "testuser1",
         "email": "testuser1@mail.com",
         "password": "abc123",
+        "likes": {
+            "1": "3",
+        },
     },
     {
         "_id": "2",
         "username": "testuser2",
         "email": "testuser2@mail.com",
         "password": "abc123",
+        "likes": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+        },
     },
     {
         "_id": "3",
         "username": "testuser3",
         "email": "testuser1@mail.com",
         "password": "abc123",
-        "likes": [
-            1, 3, 5, 6
-        ]
+        "likes": {
+            "1": "1",
+            "2": "2",
+        },
     },
 ]
 
@@ -68,24 +77,23 @@ recipe_detail_data = [
 
 ]
 
-user_liked_data = [
-    {
-        "_id": "1",
-        "user_id": "1",
-        "recipe_id": "3",
-    },
-    {
-        "_id": "2",
-        "user_id": "2",
-        "recipe_id": "1"
-    },
-]
+# user_liked_data = [
+#     {
+#         "_id": "1",
+#         "user_id": "1",
+#         "recipe_id": "3",
+#     },
+#     {
+#         "_id": "2",
+#         "user_id": "2",
+#         "recipe_id": "1"
+#     },
+# ]
 
-
+x = mycol.insert_many(user_data)
 # x2 = mycol2.insert_many(recipe_data)
 # x3 = mycol3.insert_many(recipe_detail_data)
-x4 = mycol4.insert_many(user_liked_data)
 
+print(x.inserted_ids)
 # print(x2.inserted_ids)
 # print(x3.inserted_ids)
-print(x4.inserted_ids)
