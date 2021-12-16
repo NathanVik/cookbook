@@ -11,7 +11,7 @@ class GlobalState extends Component {
         return  <siteContext.Provider 
                     value={{
                         isLoggedIn: this.state.isLoggedIn,
-
+                        handleLogin: this.handleLogin,
                     }}
                 >
                     {this.props.children}
@@ -22,8 +22,10 @@ class GlobalState extends Component {
     handleLogin = async (user) => {
             // send user to server
         let response = await axios.post(ServerUrl + "/api/user/login", user);
-        //set the state of the user and store in local
+        console.log(response)
         return response;
+        
+        
         // Redirect
         // let errorMessage = this.state.errorMessage;
         // if (response.status === 200) {
@@ -34,7 +36,7 @@ class GlobalState extends Component {
         //   setTimeout(() => {
         //     this.setState({ errorMessage: false });
         //   }, 3500);
-    }
+        }
     }
  // RECONFIGURE ERROR MESSAGE RETURNS FOR CONTEXT LOGIN
 

@@ -16,12 +16,12 @@ class Login extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleLogin = async () => {
+  loginCall = async () => {
     const username = this.state.username;
     const password = this.state.password;
 
     let user = { username, password };
-    response = await this.context.handleLogin(user);
+    let response = await this.context.handleLogin(user);
     
     if (response.status === 200) {
       localStorage.setItem("user", JSON.stringify(response.data));
@@ -35,7 +35,7 @@ class Login extends Component {
     
   };
   }
-  
+
   render() {
     return (
       <div className="login-container">
@@ -67,7 +67,7 @@ class Login extends Component {
             ></input>
           </div>
           <div className="label-input">
-            <button className="btn-login" onClick={this.handleLogin}>
+            <button className="btn-login" onClick={this.loginCall}>
               Login
             </button>
             <Link className="reg-link" to="/register">

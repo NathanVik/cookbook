@@ -6,11 +6,12 @@ import Login from './components/login';
 import UserRegistration from './components/userRegistration';
 import UserProfile from './components/userProfile';
 import CreateRecipe from './components/createRecipe';
-
+import GlobalState from './contexts/globalContext';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
+    <GlobalState>
     <BrowserRouter>
       <NavBar></NavBar>
 
@@ -25,6 +26,7 @@ function App() {
         </Switch>
       </div>
     </BrowserRouter>
+    </GlobalState>
   )
 }
 
