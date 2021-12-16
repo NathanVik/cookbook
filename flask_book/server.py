@@ -66,16 +66,16 @@ def user_login():
 def save_user():
     user = request.form.to_dict() #gets the form data
     #validations
-    # if not "username" in user:
-    #     return parse_json({"error":"Username is required", "success":False })
+    if not "username" in user:
+        return parse_json({"error":"Username is required", "success":False })
     
-    # if not "email" in user:
-    #     return parse_json({"error":"email is required", "success":False })
+    if not "email" in user:
+        return parse_json({"error":"email is required", "success":False })
     
-    # if not "password" in user:
-    #     return parse_json({"error":"password is required", "success":False })
+    if not "password" in user:
+        return parse_json({"error":"password is required", "success":False })
 
-    #### ADD PROFILE PICTURE UPLOAD FUNCTION -- RUN AN upload_file()
+    #### ADD PROFILE PICTURE
     if 'profile' not in request.files:
             flash('No file part')
             return redirect(request.url)
