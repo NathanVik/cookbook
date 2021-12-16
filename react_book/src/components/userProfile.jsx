@@ -8,6 +8,7 @@ class UserProfile extends React.Component {
     state = { 
         user: [],
         recipes: [],
+        likes: [],
     }
 
     render() { 
@@ -23,6 +24,9 @@ class UserProfile extends React.Component {
                     </div>
                     <div>
                         <p>Recipes Posted: #{this.state.recipes.length}</p>
+                    </div>
+                    <div>
+                        <p>Recipes Liked: #{this.state.likes.length}</p>
                     </div>
                 </section>
 

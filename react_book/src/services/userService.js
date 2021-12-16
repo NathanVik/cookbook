@@ -10,6 +10,9 @@ class UserService {
         return response.data;
     }
 
+    async getUserLikes() {
+        let response = await axios.get(ServerUrl + '/api/likes')
+    }
 }
 
 export default UserService;

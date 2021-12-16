@@ -10,3 +10,13 @@ def get_likes():
         likes.append(like)
     
     return parse_json(likes)
+
+
+@app.route('/api/recipecards')
+def get_recipes():
+    cursor = db.recipecards.find({})
+    recipes = []
+    for recipe in cursor:
+        recipes.append(recipe)
+
+    return parse_json(recipes)
