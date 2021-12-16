@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./login.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
-const ServerUrl = "http://127.0.0.1:5000";
+import siteContext from "../contexts/siteContext";
+// import axios from "axios";
 
 class Login extends Component {
+  static contextType = siteContext;
   state = {
     username: "",
     password: "",
@@ -15,30 +16,26 @@ class Login extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleLogin = () => {
+  handleLogin = async () => {
     const username = this.state.username;
     const password = this.state.password;
 
     let user = { username, password };
-    this.context.handleLogin(user);
+    response = await this.context.handleLogin(user);
     
-    
-    // // send user to server
-    // let response = await axios.post(ServerUrl + "/api/user/login", user);
-    // //set the state of the user and store in local
-    // localStorage.setItem("user", JSON.stringify(response.data));
-    // // Redirect
-    // // let errorMessage = this.state.errorMessage;
-    // if (response.status === 200) {
-    //   this.props.history.push("/");
-    // } else if (response.status === 404) {
-    //   this.setState({ errorMessage: true });
-    //   setTimeout(() => {
-    //     this.setState({ errorMessage: false });
-    //   }, 3500);
+    if (response.status === 200) {
+      localStorage.setItem("user", JSON.stringify(response.data));
+      this.props.history.push("/");
+  } else if (response.status === 404) {
+    this.setState({ errorMessage: true });
+    setTimeout(() => {
+      this.setState({ errorMessage: false });
+    }, 3500);
+
     
   };
-
+  }
+  
   render() {
     return (
       <div className="login-container">

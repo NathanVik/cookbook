@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import "./navBar.css";
 import { Link } from "react-router-dom";
+import siteContext from '../contexts/siteContext';
 
 class NavBar extends Component {  
+        static contextType = siteContext;
         state = {
                     isLoggedIn: false,
                 };
@@ -21,7 +23,7 @@ class NavBar extends Component {
                         </li>
 
 
-                        { this.state.isLoggedIn ? 
+                        { this.context.isLoggedIn ? 
                             <li className="right-side">
                                 <Link className="nav-link link" to="/profile">My Profile</Link>
                             </li>
