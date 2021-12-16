@@ -95,6 +95,47 @@ def save_user():
     response = parse_json(user)
     return response
 
+### CREATE NEW RECIPE ###
+
+@app.route('/api/recipe/new', methods=['POST'])
+@cross_origin()
+def create_recipe():   
+    recipeform = request.form.to_dict()
+     
+    if 'picture' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+    file = request.files['picture']
+        # If the user does not select a file, the browser submits an
+        # empty file without a filename.
+    if file.filename == '':
+            flash('No selected file')
+
+    if file and allowed_file(file.filename):
+            filename = uuid.uuid4().hex
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+    recipe_id = uuid.uuid4().hex 
+    recipe = {
+        '_id': recipe_id,
+        'title': recipeform['title'],
+        'user_id': recipeform['user_id'],
+        'filename': recipeform['filename'],
+    }
+    detail = {
+        'ingredients': recipeform['ingredients'],
+        'directions': recipeform['directions'],
+        'recipe_id': recipe_id,
+    }
+    db.recipes.insert_one(recipe)
+    db.details.insert_one(detail)
+    return 
+
+
+
+
+
+
 
 ### GET USER PROFILE INFO ###
 @app.route("/api/user/<id>") #Use ID 

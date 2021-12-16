@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import "./createRecipe.css"
+import axios from "axios";
 
+import "./createRecipe.css"
+const ServerUrl = "http://127.0.0.1:5000";
 class CreateRecipe extends React.Component {
     state = {
         selectedFile: null,
@@ -18,36 +20,46 @@ class CreateRecipe extends React.Component {
 
                     <div>
                         <label>Recipe Title</label>
-                        <input type="text" name="recipeTitle" value={this.state.recipeTitle} ></input>
+                        <input type="text" name="recipeTitle" onChange={this.handleInputChange} ></input>
                     </div>
                     <div>
                         <label>Ingredients</label>
-                        <textarea type="" name="recipeIngredients" value={this.state.recipeIngredients}></textarea>
+                        <textarea type="text" name="recipeIngredients" onChange={this.handleInputChange}></textarea>
                     </div>
                     <div>
                         <label>Instructions</label>
-                        <textarea type="" name="recipeInstructions" value={this.state.recipeInstructions}></textarea>
+                        <textarea type="text" name="recipeInstructions" onChange={this.handleInputChange}></textarea>
                     </div>
                     <div>
                         <label>Upload a picture!</label>
-                        <input type="file" onChange={this.fileSelectedHandler}></input>
+                        <input type="file" onChange={this.handleFileSelect}></input>
                     </div>
 
-                    <button onClick={this.formSendHandler}>Post Recipe</button>
+                    <button onClick={this.handleSubmit}>Post Recipe</button>
                 </form>
             </div>
         );
     }
-
-    fileSelectedhandler = event => {
-        console.log(event);
-        this.setState({
-            selectedFile: event.target.files[0] // This ensures that it targets the first selected file 
-        })
+    handleInputChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
+      };
+    handleFileSelect = (event) => {
+        this.setState({ selectedFile: event.target.files[0] // This ensures that it targets the first selected file 
+            })
     }
-    formSendHandler = () => {
-        // UPLOAD THE FILES HERE WITH API
-    }
+    handleSubmit = async () => {
+        let myForm = new FormData();
+        let myuser = JSON.parse(localStorage.getItem('user')); // retrieves JSON string from local storage
+        myForm.append('user_id', myuser['_id'])
+        myForm.append('title', this.state.recipeTitle)
+        myForm.append('ingredients', this.state.recipeIngredients)
+        myForm.append('directions', this.state.recipeInstructions)
+        myForm.append('picture', this.state.selectedFile)
+        
+        let response = await axios.post(ServerUrl + '/api/recipe/new', myForm, { 'Content-Type': 'multipart/form-data' });
+        // CREATE ERROR MESSAGES ETC
+        console.log(response)
+    };
 
 }
  
