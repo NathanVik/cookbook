@@ -48,10 +48,10 @@ class UserProfile extends React.Component {
     async componentDidMount() {
         let service1 = new UserService(); // Gets User info for selected User
         let myuser = JSON.parse(localStorage.getItem('user')); // retrieves JSON string from local storage
-        let data = await service1.getUserDetail(myuser['_id'].toString()); // Takes _id from the local storage user and passes to server
+        let data = await service1.getUserDetail(myuser['_id']); // Takes _id from the local storage user and passes to server
         
         let service2 = new RecipeService();
-        let myrecipes = await service2.getUserRecipes(myuser['_id'].toString()) // server call to retrieve all recipes where user_id is the logged in user
+        let myrecipes = await service2.getUserRecipes(myuser['_id']) // server call to retrieve all recipes where user_id is the logged in user
 
 
     this.setState({ user: data, recipes:myrecipes })
