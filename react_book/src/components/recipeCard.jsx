@@ -11,11 +11,6 @@ class RecipeCard extends React.Component {
         users: [],
     }
 
-    async componentDidMount() {
-        let service1 = new userService();
-        let author = 
-    }
-
     render() { 
         return (
         <div className="recipeCard card">
@@ -24,8 +19,8 @@ class RecipeCard extends React.Component {
             </span>
             <img src="#"></img>
             <div className="card-info">
-                <h2>Card Recipe Title</h2>
-                <h4>Author username</h4>
+                <h2>{ this.props.data.title }</h2>
+                <h4>{ this.props.data.fromUsers.username }</h4>
             </div>
         </div>
         );

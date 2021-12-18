@@ -50,19 +50,19 @@ class UserRegistration extends Component {
 
                     <div className="label-input">
                         <label>Email</label>
-                        <input type="email" name="email" onChange={this.handleInputChange}></input>
+                        <input type="email" name="email" onChange={this.handleInputChange} required></input>
                     </div>
                     <div className="label-input">
                         <label>Username</label>
-                        <input type="text" name="username" onChange={this.handleInputChange}></input>
+                        <input type="text" name="username" onChange={this.handleInputChange} required></input>
                     </div>
                     <div className="label-input">
                         <label>Password</label>
-                        <input type="password" name="password" onChange={this.handleInputChange}></input>
+                        <input type="password" name="password" onChange={this.handleInputChange} required></input>
                     </div>
                     <div className="label-input">
                         <label>Re-type Password</label>
-                        <input type="password" name="password2" onChange={this.handleInputChange}></input>
+                        <input type="password" name="password2" onChange={this.handleInputChange} required></input>
                     </div>
                     <div className="label-input">
                         <label>Upload a Profile Picture</label>

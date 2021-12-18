@@ -8,6 +8,7 @@ class UserProfile extends React.Component {
     state = { 
         user: [],
         recipes: [],
+        picture: [],
         likes: [],
     }
 
@@ -19,7 +20,7 @@ class UserProfile extends React.Component {
 
                 <section className="user-container-card">
                     <div className="">
-                        <img className="profile-picture" src={`${process.env.PUBLIC_URL}/assets/images/chef.jpg`} alt="user-image"></img>
+                        <img className="profile-picture" src={this.state.user.profilepic} alt="user-image"></img>
                         <h2>{ this.state.user.username }</h2>
                     </div>
                     <div>
@@ -47,15 +48,22 @@ class UserProfile extends React.Component {
     async componentDidMount() {
         let service1 = new UserService(); // Gets User info for selected User
         let myuser = JSON.parse(localStorage.getItem('user')); // retrieves JSON string from local storage
-        let data = await service1.getUserDetail(myuser['_id']); // Takes _id from the local storage user and passes to server
+        let data = await service1.getUserDetail(myuser['_id'].toString()); // Takes _id from the local storage user and passes to server
         
         let service2 = new RecipeService();
-        let myrecipes = await service2.getUserRecipes(myuser['_id']) // server call to retrieve all recipes where user_id is the logged in user
+        let myrecipes = await service2.getUserRecipes(myuser['_id'].toString()) // server call to retrieve all recipes where user_id is the logged in user
 
 
     this.setState({ user: data, recipes:myrecipes })
-    }
 
+        let picture = await service1.getUserDetail(myuser['profilepic']);
+        
+        // if (Array.isArray(picture) && picture.length) {
+        //     this.setState({ picture: picture })
+        // } else {
+        //     this.setState({ picture: `${process.env.PUBLIC_URL}/assets/images/chef.jpg`})
+        // }
+    }
 }
 
 
