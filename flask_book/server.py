@@ -161,7 +161,7 @@ def create_recipe():
 ### GET USER PROFILE INFO ###
 @app.route("/api/user/<id>") #Use ID 
 def get_user_profile(id):
-    user = db.users.find_one({"_id": id})
+    user = db.users.find_one({"_id": ObjectId(id)})
     if not user:
         abort(404)
     return parse_json(user)
@@ -184,7 +184,7 @@ def get_user_recipes(id):
 
     ])
     for recipe in recipes:
-        if recipe["user_id"] == id:
+        if recipe["user_id"] == ObjectId(id):
             results.append(recipe)
     return parse_json(results)
 
@@ -207,7 +207,7 @@ def test_data(id):
 
     ])
     for recipe in recipes:
-        if recipe["user_id"] == id:
+        if recipe["user_id"] == ObjectId(id):
             results.append(recipe)
     return parse_json(results)
 
