@@ -1,3 +1,5 @@
+import re
+from bson.objectid import ObjectId
 from flask import Flask, abort, request, flash, redirect
 from config import db, parse_json
 import pymongo
@@ -5,7 +7,7 @@ import os
 from pymongo import cursor, results
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
-import uuid
+
 
 
 app = Flask(__name__)
@@ -42,6 +44,25 @@ def get_users():
         users.append(user)
 
     return parse_json(users)
+
+@app.route('/api/recipetest')
+def get_recipes():
+    cursor = db.recipes.find({})
+    recipes = []
+    for recipe in cursor:
+        recipes.append(recipe)
+    
+    return parse_json(recipes)
+
+@app.route('/api/detailtest')
+def get_details():
+    cursor = db.details.find({})
+    details = []
+    for detail in cursor:
+        details.append(detail)
+    
+    return parse_json(details)
+
 
 @app.route('/api/user/login', methods=['POST'])
 def user_login():
@@ -86,7 +107,7 @@ def save_user():
             flash('No selected file')
 
     if file and allowed_file(file.filename):
-            filename = uuid.uuid4().hex
+            filename = str(ObjectId())
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             
     user['profilepic'] = filename
@@ -112,10 +133,10 @@ def create_recipe():
             flash('No selected file')
 
     if file and allowed_file(file.filename):
-            filename = uuid.uuid4().hex
+            filename = str(ObjectId())
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-    recipe_id = uuid.uuid4().hex 
+    recipe_id = str(ObjectId())
     recipe = {
         '_id': recipe_id,
         'title': recipeform['title'],
@@ -129,7 +150,7 @@ def create_recipe():
     }
     db.recipes.insert_one(recipe)
     db.details.insert_one(detail)
-    return 
+    return recipe, detail
 
 
 

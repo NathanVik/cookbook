@@ -6,7 +6,6 @@ import siteContext from '../contexts/siteContext';
 class NavBar extends Component {  
         static contextType = siteContext;
         state = {
-                    isLoggedIn: false,
                 };
        
 

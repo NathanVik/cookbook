@@ -11,7 +11,31 @@ class CreateRecipe extends React.Component {
         recipeIngredients: "",
         recipeInstructions: "",
 
-    }
+    };
+
+    handleInputChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
+      };
+    handleFileSelect = (event) => {
+        this.setState({ selectedFile: event.target.files[0] // This ensures that it targets the first selected file 
+            })
+    };
+    handleSubmit = async () => {
+        console.log(this.state.recipeIngredients)
+        
+        let myForm = new FormData();
+        let myuser = JSON.parse(localStorage.getItem('user')); // retrieves JSON string from local storage
+        myForm.append('user_id', myuser['_id']);
+        myForm.append('title', this.state.recipeTitle);
+        myForm.append('ingredients', this.state.recipeIngredients);
+        myForm.append('directions', this.state.recipeInstructions);
+        myForm.append('picture', this.state.selectedFile);
+        console.log(myForm);
+        let response = await axios.post(ServerUrl + '/api/recipe/new', myForm, { 'Content-Type': 'multipart/form-data' });
+        // CREATE ERROR MESSAGES ETC
+        console.log(response);
+    };
+
     render() { 
         return (
             <div className="create-container">
@@ -40,26 +64,7 @@ class CreateRecipe extends React.Component {
             </div>
         );
     }
-    handleInputChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value });
-      };
-    handleFileSelect = (event) => {
-        this.setState({ selectedFile: event.target.files[0] // This ensures that it targets the first selected file 
-            })
-    }
-    handleSubmit = async () => {
-        let myForm = new FormData();
-        let myuser = JSON.parse(localStorage.getItem('user')); // retrieves JSON string from local storage
-        myForm.append('user_id', myuser['_id'])
-        myForm.append('title', this.state.recipeTitle)
-        myForm.append('ingredients', this.state.recipeIngredients)
-        myForm.append('directions', this.state.recipeInstructions)
-        myForm.append('picture', this.state.selectedFile)
-        
-        let response = await axios.post(ServerUrl + '/api/recipe/new', myForm, { 'Content-Type': 'multipart/form-data' });
-        // CREATE ERROR MESSAGES ETC
-        console.log(response)
-    };
+    
 
 }
  
