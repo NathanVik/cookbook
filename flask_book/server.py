@@ -141,7 +141,7 @@ def create_recipe():
         '_id': recipe_id,
         'title': recipeform['title'],
         'user_id': recipeform['user_id'],
-        'filename': recipeform['filename'],
+        'filename': filename,
     }
     detail = {
         'ingredients': recipeform['ingredients'],

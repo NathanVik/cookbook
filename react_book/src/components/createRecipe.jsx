@@ -39,7 +39,7 @@ class CreateRecipe extends React.Component {
     render() { 
         return (
             <div className="create-container">
-                <form className="create-recipe-form">
+                <div className="create-recipe-form">
                     <h2>Create a New Recipe</h2>
 
                     <div>
@@ -60,7 +60,7 @@ class CreateRecipe extends React.Component {
                     </div>
 
                     <button onClick={this.handleSubmit}>Post Recipe</button>
-                </form>
+                </div>
             </div>
         );
     }
