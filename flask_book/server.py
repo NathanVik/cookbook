@@ -216,12 +216,22 @@ def test_data(id):
 ### Landing Page Recipe List ###
 @app.route('/api/recipecards/recent')
 def get_recent_recipes():
-    cursor = db.recipes.find({}).limit(6)
-    recipes = []
-    for recipe in cursor:
-        recipes.append(recipe)
-
-    return parse_json(recipes)
+    results = []
+    recipes = db.recipes.aggregate([
+        {
+            '$lookup': {
+                'from': "users",
+                'localField': "user_id",
+                'foreignField': "_id",
+                'as': "fromUsers"
+            }
+        }, {
+            '$unwind': '$fromUsers'
+        }
+    ])
+    for recipe in recipes:
+        results.append(recipe)
+    return parse_json(results)
 
 if __name__ == "__main__":
     app.run(debug=True)
