@@ -58,11 +58,11 @@ class UserProfile extends React.Component {
 
         let picture = await service1.getUserDetail(myuser['profilepic']);
         
-        // if (Array.isArray(picture) && picture.length) {
-        //     this.setState({ picture: picture })
-        // } else {
-        //     this.setState({ picture: `${process.env.PUBLIC_URL}/assets/images/chef.jpg`})
-        // }
+        if (Array.isArray(picture) && picture.length) {
+            this.setState({ picture: picture })
+        } else {
+            this.setState({ picture: `${process.env.PUBLIC_URL}/assets/images/chef.jpg`})
+        }
     }
 }
 
