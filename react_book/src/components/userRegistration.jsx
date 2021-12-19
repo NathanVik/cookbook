@@ -9,7 +9,7 @@ class UserRegistration extends Component {
         email: '',
         password: '',
         password2: '',
-        selectedFile: null,
+        selectedFile: '../../public/assets/images/chef.jpg',
     };
     
 
@@ -32,8 +32,10 @@ class UserRegistration extends Component {
         // const file = this.state.selectedFile
         
         
-
-        console.log(myForm)
+        for (var value of myForm.values()) {
+            console.log(value)
+            console.log(typeof value)
+        }
         let response = await axios.post(ServerUrl + '/api/users', myForm, { 'Content-Type': 'multipart/form-data' });
         // CREATE ERROR MESSAGES ETC
         console.log(response)

@@ -7,6 +7,7 @@ import os
 from pymongo import cursor, results
 from flask_cors import CORS, cross_origin
 from werkzeug.utils import secure_filename
+from io import StringIO
 
 
 
@@ -101,14 +102,14 @@ def save_user():
             flash('No file part')
             return redirect(request.url)
     file = request.files['profile']
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
-    if file.filename == '':
-            flash('No selected file')
-
+        
     if file and allowed_file(file.filename):
             filename = str(ObjectId())
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            
+    elif file.filename is None:
+            file = open('./static/img/chef.jpg', 'rb')
+            filename = str(ObjectId())
             
     user['profilepic'] = filename
     print(user)
