@@ -153,8 +153,34 @@ def create_recipe():
     db.details.insert_one(detail)
     return recipe, detail
 
-
-
+### Get Recipe Details
+@app.route('/api/recipe/<id>')
+def get_recipe_detail(id):
+    result = []
+    recipes = db.recipes.aggregate([
+        {
+            '$lookup': {
+                'from': "users",
+                'localField': "user_id",
+                'foreignField': "_id",
+                'as': "fromUsers"
+            }
+        }, {
+            '$unwind': '$fromUsers'
+        },
+        {
+            '$lookup': {
+                'from': "details",
+                'localField': "_id",
+                'foreignField': "recipe_id",
+                'as': "fromDetail"
+            }
+        }
+    ])
+    for recipe in recipes:
+        if recipe["_id"] == ObjectId(id):
+            result.append(recipe)
+    return parse_json(result)
 
 
 
