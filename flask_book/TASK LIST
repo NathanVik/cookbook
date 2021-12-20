@@ -1,1 +1,5 @@
-Switch out UUID from the DB generation, it doesn't search right in mongo
+View Recipe Page - Gets linked from recipe Cards - pass data via props in link
+
+Edit profile - simple update CRUD call for new email, password
+
+Add links to specific recipe pages and profile pages based on ID passed to the card 

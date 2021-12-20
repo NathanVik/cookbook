@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './recipeCard.css';
-import UserService from '../services/userService';
-import RecipeService from '../services/recipeService';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
