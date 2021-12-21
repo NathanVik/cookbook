@@ -155,6 +155,7 @@ def create_recipe():
 
 ### Get Recipe Details
 @app.route('/api/recipe/<id>')
+@cross_origin()
 def get_recipe_detail(id):
     result = []
     recipes = db.recipes.aggregate([
@@ -195,6 +196,7 @@ def get_user_profile(id):
 
 ## Get User's Recipe List
 @app.route('/api/user/<id>/recipes')
+@cross_origin()
 def get_user_recipes(id):
     results = []
     recipes = db.recipes.aggregate([
@@ -242,6 +244,7 @@ def test_data(id):
 
 ### Landing Page Recipe List ###
 @app.route('/api/recipecards/recent')
+@cross_origin()
 def get_recent_recipes():
     results = []
     recipes = db.recipes.aggregate([
