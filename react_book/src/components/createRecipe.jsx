@@ -39,27 +39,27 @@ class CreateRecipe extends React.Component {
     render() { 
         return (
             <div className="create-container">
-                <div className="create-recipe-form">
+                <div className="create-recipe-form card">
                     <h2>Create a New Recipe</h2>
 
-                    <div>
+                    <div className="label-input">
                         <label>Recipe Title</label>
                         <input type="text" name="recipeTitle" onChange={this.handleInputChange} ></input>
                     </div>
-                    <div>
+                    <div className="label-input">
                         <label>Ingredients</label>
                         <textarea type="text" name="recipeIngredients" onChange={this.handleInputChange}></textarea>
                     </div>
-                    <div>
+                    <div className="label-input">
                         <label>Instructions</label>
                         <textarea type="text" name="recipeInstructions" onChange={this.handleInputChange}></textarea>
                     </div>
-                    <div>
+                    <div className="label-input">
                         <label>Upload a picture!</label>
                         <input type="file" onChange={this.handleFileSelect}></input>
                     </div>
 
-                    <button onClick={this.handleSubmit}>Post Recipe</button>
+                    <button className="btn" onClick={this.handleSubmit}>Post Recipe</button>
                 </div>
             </div>
         );

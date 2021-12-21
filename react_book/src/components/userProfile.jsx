@@ -12,6 +12,10 @@ class UserProfile extends React.Component {
         likes: [],
     }
 
+    routeRedirect = () => {
+        this.props.history.push("/create-recipe");
+    }
+
     render() { 
         let itemsToDisplay = this.state.recipes;
 
@@ -33,7 +37,7 @@ class UserProfile extends React.Component {
 
                 <section className="posts-container">
                     <div className="user-recipe-manager">
-                        <button className="">Create</button>
+                        <button className="" onClick={this.routeRedirect}>Create</button>
                         <button className="">Delete</button>
                     </div>
                     <div>
@@ -56,13 +60,13 @@ class UserProfile extends React.Component {
 
     this.setState({ user: data, recipes:myrecipes })
 
-        let picture = await service1.getUserDetail(myuser['profilepic']);
+        // let picture = await service1.getUserDetail(myuser['profilepic']);
         
-        if (Array.isArray(picture) && picture.length) {
-            this.setState({ picture: picture })
-        } else {
-            this.setState({ picture: `${process.env.PUBLIC_URL}/assets/images/chef.jpg`})
-        }
+        // if (Array.isArray(picture) && picture.length) {
+        //     this.setState({ picture: picture })
+        // } else {
+        //     this.setState({ picture: `${process.env.PUBLIC_URL}/assets/images/chef.jpg`})
+        // }
     }
 }
 

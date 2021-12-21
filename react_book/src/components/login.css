@@ -23,28 +23,6 @@
     color: var(--primary);
 }
 
-.label-input {
-    display: flex;
-    flex-direction: column;
-    margin: 0 2rem;
-    margin-bottom: 2rem;
-}
-
-.label-input label {
-    font-weight: Bold;
-    text-align: left;
-    margin-bottom: 0.25rem;
-}
-
-.label-input input {
-    border: none;
-    background-color: var(--background);
-    padding: 8px;
-    border-radius: var(--rounded-corner);
-    /* box-shadow: var(--shadow); */
-    border: 1px solid var(--dark-text);
-}
-
 .label-input .reg-link {
     text-decoration: none;
     color: var(--dark-text);

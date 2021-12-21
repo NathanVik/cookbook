@@ -16,7 +16,7 @@ class RecipeCard extends React.Component {
             <span className="card-header">
                 <button className="btn-icon"><FontAwesomeIcon className="like-icon" icon={faHeart} /></button>
             </span>
-            <img src="#">Test</img>
+            {/* <img src="#">Test</img> */}
             <div className="card-info">
                 <h2>{ this.props.data.title }</h2>
                 <h4>{ this.props.data.fromUsers.username }</h4>

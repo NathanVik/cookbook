@@ -47,7 +47,7 @@ class UserRegistration extends Component {
     render() { 
         return (
             <div className="reg-container">
-                <div className="reg-card">
+                <div className="reg-card card">
                     <h2>Create a CookBook Account</h2>
 
                     <div className="label-input">
@@ -70,7 +70,7 @@ class UserRegistration extends Component {
                         <label>Upload a Profile Picture</label>
                         <input type="file" name="file" onChange={this.handleFileChange}></input>
                     </div>
-                    <button className="register btn-reg" onClick={this.handleSubmit}>Create Account</button>
+                    <button className="register btn-reg btn" onClick={this.handleSubmit}>Create Account</button>
                 </div>
             </div>
             );

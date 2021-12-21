@@ -2,14 +2,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 75vh;
+    min-height: 100vh;
 }
 
 .create-recipe-form {
-    border: 1px solid red;
-    background-color: var(--light);
-    border-radius: var(--rounded-corner);
-    box-shadow: var(--shadow);
-    padding: 2rem 4rem;
     width: 500px;
+}
+
+.create-recipe-form h2 {
+    font-size: 3.4em;
+    margin-bottom: 4rem;
+    color: var(--primary);
+}
+
+.label-input textarea {
+    border: none;
+    background-color: var(--background);
+    padding: 8px;
+    border-radius: var(--rounded-corner);
+    /* box-shadow: var(--shadow); */
+    border: 1px solid var(--dark-text);
 }
