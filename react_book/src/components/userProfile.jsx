@@ -20,9 +20,9 @@ class UserProfile extends React.Component {
         let itemsToDisplay = this.state.recipes;
 
         return (
-            <div className="user-profile">
+            <div className="user-profile center-width">
 
-                <section className="user-container-card">
+                <section className="user-container-card card">
                     <div className="">
                         <img className="profile-picture" src={this.state.user.profilepic} alt="user-image"></img>
                         <h2>{ this.state.user.username }</h2>
@@ -36,9 +36,9 @@ class UserProfile extends React.Component {
                 </section>
 
                 <section className="posts-container">
-                    <div className="user-recipe-manager">
-                        <button className="" onClick={this.routeRedirect}>Create</button>
-                        <button className="">Delete</button>
+                    <div className="user-recipe-manager card">
+                        <button className="btn" onClick={this.routeRedirect}>Create</button>
+                        <button className="btn">Delete</button>
                     </div>
                     <div>
                         { itemsToDisplay.map( obj => <RecipeCard key={obj._id} data={obj}></RecipeCard> ) }

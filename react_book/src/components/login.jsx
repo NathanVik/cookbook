@@ -38,7 +38,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login-container">
+      <div className="login-container center-width">
         <div className="login-card card">
           <h2>CookBook Login</h2>
 

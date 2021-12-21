@@ -21,7 +21,7 @@ class LandingPage extends Component {
                     <img className="cookbook-cover" src={`${process.env.PUBLIC_URL}/assets/images/sweet-peppers.jpg`} alt="splash-image"/>
                     <h2 className="cover-text card">Welcome to the CookBook</h2>
                 </div>
-                <div className="message card">
+                <div className="message card center-width">
                     <img src={`${process.env.PUBLIC_URL}/assets/images/chef-hat1.png`} alt="chef-hat"/>
                     <p>Take a look at some of our Top Recipes of the Week!</p>
                     <p>Count: {this.state.posts.length}</p>

@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 
 class Logout extends React.Component {
     render() { 
-        return <div></div>;
+        return (
+        <div className="logout-container center-width">
+            
+        </div>
+        );
     }
 }
  

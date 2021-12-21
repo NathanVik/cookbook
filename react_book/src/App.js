@@ -13,21 +13,20 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 function App() {
   return (
     <GlobalState>
-    <BrowserRouter>
-      <NavBar></NavBar>
-
-      <div className="App">
-        <Switch>
-          <Route path="/" exact component={LandingPage}></Route>
-          <Route path="/home" exact component={Home}></Route>
-          <Route path="/login" exact component={Login}></Route>
-          <Route path="/register" exact component={UserRegistration}></Route>
-          <Route path="/profile" exact component={UserProfile}></Route>
-          <Route path="/create-recipe" component={CreateRecipe}></Route>
-          <Route path="/recipe/:recipeID" component={ViewRecipe}></Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+      <BrowserRouter>
+        <div className="App">
+          <NavBar></NavBar>
+          <Switch>
+            <Route path="/" exact component={LandingPage}></Route>
+            <Route path="/home" exact component={Home}></Route>
+            <Route path="/login" exact component={Login}></Route>
+            <Route path="/register" exact component={UserRegistration}></Route>
+            <Route path="/profile" exact component={UserProfile}></Route>
+            <Route path="/create-recipe" component={CreateRecipe}></Route>
+            <Route path="/recipe/:recipeID" component={ViewRecipe}></Route>
+          </Switch>
+        </div>
+      </BrowserRouter>
     </GlobalState>
   )
 }

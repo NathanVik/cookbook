@@ -46,7 +46,7 @@ class UserRegistration extends Component {
     
     render() { 
         return (
-            <div className="reg-container">
+            <div className="reg-container center-width">
                 <div className="reg-card card">
                     <h2>Create a CookBook Account</h2>
 

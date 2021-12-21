@@ -1,13 +1,12 @@
 .user-profile {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    max-width: 65%;
 }
 
 .user-container-card {
-    border: 1px solid red;
     background-color: var(--light);
-    padding: 4rem;
-    /* flex: 1; */
+    padding: 4rem 6rem;
 }
 
 .profile-picture {
@@ -15,12 +14,8 @@
     width: 100%;
 }
 
-.post-container {
-    flex: 5;
-}
-
 .user-recipe-manager {
-    background-color: var(--light);
-    border: 1px solid red;
+    display: flex;
+    justify-content: space-around;
     padding: 1rem;
 }

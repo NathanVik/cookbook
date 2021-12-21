@@ -38,7 +38,7 @@ class CreateRecipe extends React.Component {
 
     render() { 
         return (
-            <div className="create-container">
+            <div className="create-container center-width">
                 <div className="create-recipe-form card">
                     <h2>Create a New Recipe</h2>
 
