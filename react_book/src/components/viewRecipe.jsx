@@ -3,7 +3,9 @@ import RecipeService from '../services/recipeService';
 
 
 class ViewRecipe extends React.Component {
-
+    state = {
+        recipe: [],
+    }
     
     render() { 
         return <div>
@@ -17,7 +19,9 @@ class ViewRecipe extends React.Component {
 
     async componentDidMount() {
         let service = new RecipeService()
-        recipe = await service.getRecipeDetail(this.props.data._id) //this recipe ID - by props from "recipe" collection ID - pass prop in link from recipe card
+        let myrecipe = await service.getRecipeDetail(this.props.match.params.recipeID) //this recipe ID - by props from "recipe" collection ID - pass prop in link from recipe card
+        this.setState({ recipe: myrecipe })
+        console.log(this.state.recipe)
     }
 }
  

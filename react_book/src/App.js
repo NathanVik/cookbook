@@ -7,6 +7,7 @@ import UserRegistration from './components/userRegistration';
 import UserProfile from './components/userProfile';
 import CreateRecipe from './components/createRecipe';
 import GlobalState from './contexts/globalContext';
+import ViewRecipe from './components/viewRecipe';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/register" exact component={UserRegistration}></Route>
           <Route path="/profile" exact component={UserProfile}></Route>
           <Route path="/create-recipe" component={CreateRecipe}></Route>
+          <Route path="/recipe/:recipeID" component={ViewRecipe}></Route>
         </Switch>
       </div>
     </BrowserRouter>
