@@ -16,7 +16,7 @@ class LandingPage extends Component {
 
 
         return (
-            <div className="landing-page">
+            <div className="landing-page ">
                 <div className="image-container">
                     <img className="cookbook-cover" src={`${process.env.PUBLIC_URL}/assets/images/sweet-peppers.jpg`} alt="splash-image"/>
                     <h2 className="cover-text card">Welcome to the CookBook</h2>
@@ -27,7 +27,7 @@ class LandingPage extends Component {
                     <p>Count: {this.state.posts.length}</p>
                 </div>
 
-                <div className="recipeCard-list">
+                <div className="recipeCard-list center-width">
                     {recipesToDisplay.map((obj) => (
                         <RecipeCard key={obj._id} data={obj}></RecipeCard>
                     ))}

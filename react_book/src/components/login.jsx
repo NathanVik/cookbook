@@ -39,7 +39,7 @@ class Login extends Component {
   render() {
     return (
       <div className="login-container">
-        <div className="login-card">
+        <div className="login-card card">
           <h2>CookBook Login</h2>
 
           {this.state.errorMessage ? (
@@ -67,7 +67,7 @@ class Login extends Component {
             ></input>
           </div>
           <div className="label-input">
-            <button className="btn-login" onClick={this.loginCall}>
+            <button className="btn-login btn" onClick={this.loginCall}>
               Login
             </button>
             <Link className="reg-link" to="/register">

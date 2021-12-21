@@ -6,11 +6,6 @@
 }
 
 .login-card {
-    /* border: 1px solid red; */
-    background-color: var(--light);
-    border-radius: var(--rounded-corner);
-    box-shadow: var(--shadow);
-    padding: 2rem 4rem;
     width: 500px;
     display: flex;
     flex-direction: column;
@@ -28,30 +23,14 @@
     color: var(--dark-text);
     margin-top: 1.5rem;
     text-align: left;
-}
-
-.label-input .reg-link:hover {
-    color: var(--primary);
-}
-
-.btn-login {
-    background-color: var(--primary);
-    color: var(--light);
-    padding: .5rem 1rem;
-    font-size: 1.2em;
-    border: 1px solid var(--primary);
-    border-radius: var(--rounded-corner);
-    box-shadow: var(--shadow);
     transition: all .1s ease-in-out;
 }
 
-.btn-login:hover {
-    cursor: pointer;
+.label-input .reg-link:hover {
+    color: var(--primary-dark);
+    transform: scale(1.01);
+    font-weight: bold;
 }
-.btn-login:active {
-    transform: scale(0.97);
-}
-
 
 .error-message {
     color: red;

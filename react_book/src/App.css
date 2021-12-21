@@ -6,6 +6,7 @@
   --background: #f4f7f9;
   --light: #fbfcfa;
   --dark-text: #172d20;
+  --primary-dark: #9CB0A3;
 
   --shadow: rgba(19, 41, 28, 0.3) 0px 1px 2px 0px, rgba(19, 41, 28, 0.15) 0px 1px 3px 1px;
   --text-outline: -1px 0 var(--dark-text), 0 1px var(--dark-text), 1px 0 var(--dark-text), 0 -1px var(--dark-text);
@@ -13,11 +14,19 @@
 }
 
 .App {
+  /* text-align: center;
+  justify-content: center;
+  width: 80%;
+  margin: auto auto; */
+  color: var(--dark-text); 
+}
+
+/* Created class specifically body width */
+.center-width {
   text-align: center;
   justify-content: center;
   width: 80%;
   margin: auto auto;
-  color: var(--dark-text); 
 }
 
 /* Remove bullet points */
@@ -63,9 +72,25 @@ ul {
   border: 1px solid var(--dark-text);
 }
 
+input[type="file"]::file-selector-button {
+  background-color: var(--primary-dark);
+  color: var(--light);
+  border-radius: var(--rounded-corner);
+  border: none;
+  padding: .25rem .5rem;
+}
+
+input[type="file"]::file-selector-button:hover {
+  cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:active {
+  transform: scale(0.97);
+}
+
 /* Styling for buttons for forms */
 .btn {
-  background-color: var(--primary);
+  background-color: var(--primary-dark);
   color: var(--light);
   border: none;
   border-radius: var(--rounded-corner);

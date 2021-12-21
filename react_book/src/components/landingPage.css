@@ -45,3 +45,27 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+
+/* MOBILE */
+@media(max-width: 768px){
+    .cover-text{
+        position: relative;
+        inset: 0;
+        transform: none;
+        font-size: 2.5em;
+        max-width: none;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .cookbook-cover {
+        max-width: 100%;
+        height: auto;
+        opacity: 1;
+    }
+
+    .message {
+        font-size: 1.5em;
+    }
+}
