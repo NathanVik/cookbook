@@ -24,7 +24,7 @@ class UserProfile extends React.Component {
 
                 <section className="user-container-card card">
                     <div className="">
-                        <img className="profile-picture" src={this.state.user.profilepic} alt="user-image"></img>
+                        <img className="profile-picture" src={this.state.user.profilepic} alt="user-image"/>
                         <h2>{ this.state.user.username }</h2>
                     </div>
                     <div>

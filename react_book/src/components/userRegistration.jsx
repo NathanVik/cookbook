@@ -36,8 +36,18 @@ class UserRegistration extends Component {
             console.log(value)
             console.log(typeof value)
         }
+
+        const username = this.state.username;
+        const password = this.state.password;
+
+        let user = { username, password };
         let response = await axios.post(ServerUrl + '/api/users', myForm, { 'Content-Type': 'multipart/form-data' });
-        // CREATE ERROR MESSAGES ETC
+        
+        if (response.status === 200) {
+            localStorage.setItem("user", JSON.stringify(response.data));
+            this.props.history.push("/profile");
+        }
+
         console.log(response)
     };
 
