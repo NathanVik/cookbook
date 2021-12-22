@@ -11,4 +11,5 @@ export default React.createContext({
 
     handleLogout: () => {},
 
+    updateLogin: () => {},
  });

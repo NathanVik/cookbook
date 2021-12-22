@@ -25,6 +25,7 @@ class Login extends Component {
     
     if (response.status === 200) {
       localStorage.setItem("user", JSON.stringify(response.data));
+      this.context.updateLogin();
       this.props.history.push("/profile");
   } else if (response.status === 404) {
     this.setState({ errorMessage: true });

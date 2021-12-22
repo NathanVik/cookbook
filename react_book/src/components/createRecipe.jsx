@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import axios from "axios";
 
 import "./createRecipe.css"
+import siteContext from '../contexts/siteContext';
+import { Redirect } from 'react-router-dom';
 const ServerUrl = "http://127.0.0.1:5000";
 class CreateRecipe extends React.Component {
+    static contextType = siteContext;
     state = {
         selectedFile: null,
 
@@ -65,6 +68,11 @@ class CreateRecipe extends React.Component {
         );
     }
     
+    componentDidMount() {           // check if there is a user logged into local storage, if not then redirect to login page
+        if (this.context.isLoggedIn = false) {
+            return <Redirect to='/login' />
+        }
+    }
 
 }
  
