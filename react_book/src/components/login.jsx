@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./login.css";
 import { Link } from "react-router-dom";
-import siteContext from "../contexts/siteContext";
+import siteContext, { updateLogin } from "../contexts/siteContext";
 // import axios from "axios";
 
 class Login extends Component {

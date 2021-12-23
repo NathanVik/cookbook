@@ -24,7 +24,13 @@ class RecipeService {
 
     // GET INDIVIDUAL RECIPE DETAIL BASED ON RECIPE ID
     async getRecipeDetail(recipeID) {
-        let response = await axios.get(ServerUrl + '/api/recipe/' + recipeID);
+        let response = null
+        try {
+            response = await axios.get(ServerUrl + '/api/recipe/' + recipeID);
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
         if(response.status === 200){
             return response.data;
         } else {

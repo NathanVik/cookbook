@@ -176,6 +176,8 @@ def get_recipe_detail(id):
                 'foreignField': "recipe_id",
                 'as': "fromDetail"
             }
+        }, {
+            '$unwind': '$fromDetail'
         }
     ])
     for recipe in recipes:
