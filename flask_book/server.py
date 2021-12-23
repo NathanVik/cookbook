@@ -189,8 +189,16 @@ def get_recipe_detail(id):
 @app.route('/api/recipe/<id>', methods=['DELETE'])
 @cross_origin()
 def recipe_delete(id):
-    recipe = db.recipes.find(id)
-    recipe_details = db.details.find( { "recipe_id": id } )
+    recipe = db.recipes.find_one({ "_id" : ObjectId(id) })
+    recipe_details = db.details.find_one({ "recipe_id": id })
+
+    if (recipe):
+        db.recipes.remove(recipe)
+        db.recipes.remove(recipe_details)
+
+        return "Recipe Deleted!"
+    else:
+        abort(404, 'Delete Was Unsuccessful! Recipe Not Found.')
 
 
 
