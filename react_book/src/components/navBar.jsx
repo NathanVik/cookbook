@@ -20,17 +20,13 @@ class NavBar extends Component {
                         <li>
                             <Link className="nav-link link" to="/home">Home</Link>
                         </li>
-
-
-                        { this.context.isLoggedIn ? 
-                            <li className="right-side">
-                                <Link className="nav-link link" to="/profile">My Profile</Link>
-                            </li>
-                            :
-                            <li>
-                                <Link className="nav-link link" to="/login">Login</Link>
-                            </li>
-                        }
+                        <li className="right-side">
+                            <Link className="nav-link link" to="/profile">My Profile</Link>
+                        </li>
+                        <li className="right-side">
+                            <Link className="nav-link link" to="/create-recipe">Post a New Recipe</Link>
+                        </li>
+   
                     </ul>
                 </div>
             </nav>

@@ -19,6 +19,15 @@ class GlobalState extends Component {
          
     }
 
+    componentDidMount() {
+        this.setState({ isLoggedIn: false })
+    }
+
+    updateLogin = () => {
+        this.setState( {isLoggedIn: true} )
+    }
+
+
     handleLogin = async (user) => {
             // send user to server
         let response = await axios.post(ServerUrl + "/api/user/login", user);
