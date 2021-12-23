@@ -146,7 +146,7 @@ def create_recipe():
     }
     detail = {
         'ingredients': recipeform['ingredients'],
-        'directions': recipeform['directions'],
+        'instructions': recipeform['instructions'],
         'recipe_id': recipe_id,
     }
     db.recipes.insert_one(recipe)

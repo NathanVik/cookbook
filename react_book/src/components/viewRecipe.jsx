@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import RecipeService from '../services/recipeService';
+import './viewRecipe.css'
 const ServerUrl = "http://127.0.0.1:5000";
 
 class ViewRecipe extends React.Component {
@@ -27,11 +28,20 @@ class ViewRecipe extends React.Component {
     }
     
     render() { 
-        return <div>
-                    Show Image <img src={ ServerUrl + '/static/img/' +  this.state.recipe.filename } />
-                    Show Title {this.state.recipe.title}
-                    Show Ingredients {this.state.recipe.fromDetail.ingredients}
-                    Show Directions {this.state.recipe.fromDetail.instructions}
+        return <div className='view-recipe'>
+
+<div className='recipe-image'> 
+    <img src={ ServerUrl + '/static/img/' +  this.state.recipe.filename } />
+</div>
+<div className='recipe-details'>
+        <h1>{this.state.recipe.title}</h1>
+        <h3>Ingredients</h3>
+        <p>{this.state.recipe.fromDetail.ingredients}</p>
+        <h3>Instructions</h3>
+        <p>{this.state.recipe.fromDetail.instructions}</p>
+
+</div>
+
 
         </div>;
     }

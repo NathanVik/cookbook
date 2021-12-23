@@ -5,6 +5,7 @@ import RecipeService from '../services/recipeService';
 import RecipeCard from './recipeCard';
 import siteContext from '../contexts/siteContext';
 import { Redirect } from 'react-router-dom';
+const ServerUrl = "http://127.0.0.1:5000";
 
 class ViewUserProfile extends React.Component {
     static contextType = siteContext;
@@ -27,7 +28,7 @@ class ViewUserProfile extends React.Component {
 
                 <section className="user-container-card card">
                     <div className="">
-                        <img className="profile-picture" src={this.state.user.profilepic} alt="user-image"></img>
+                        <img className="profile-picture" src={ ServerUrl + '/static/img/' +  this.state.picture.filename } alt="user-image"></img>
                         <h2>{ this.state.user.username }</h2>
                     </div>
                     <div>

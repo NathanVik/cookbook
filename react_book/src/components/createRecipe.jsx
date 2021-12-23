@@ -31,7 +31,7 @@ class CreateRecipe extends React.Component {
         myForm.append('user_id', myuser['_id']);
         myForm.append('title', this.state.recipeTitle);
         myForm.append('ingredients', this.state.recipeIngredients);
-        myForm.append('directions', this.state.recipeInstructions);
+        myForm.append('instructions', this.state.recipeInstructions);
         myForm.append('picture', this.state.selectedFile);
         console.log(myForm);
         let response = await axios.post(ServerUrl + '/api/recipe/new', myForm, { 'Content-Type': 'multipart/form-data' });

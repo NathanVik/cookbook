@@ -8,8 +8,13 @@ class LandingPage extends Component {
     state = {
         posts: [],
     };
-
-
+    
+    loginRedirect = () => {
+        this.props.history.push("/login");
+    }
+    registerRedirect = () => {
+        this.props.history.push("/register");
+    }
     render() {
 
         let recipesToDisplay = this.state.posts;
@@ -20,6 +25,10 @@ class LandingPage extends Component {
                 <div className="image-container">
                     <img className="cookbook-cover" src={`${process.env.PUBLIC_URL}/assets/images/sweet-peppers.jpg`} alt="splash-image"/>
                     <h2 className="cover-text card">Welcome to the CookBook</h2>
+                </div>
+                <div className="message card center-width">
+                    <button className="btn" onClick={this.loginRedirect}>Log In</button>
+                    <button className="btn" onClick={this.registerRedirect}>Register New User</button>
                 </div>
                 <div className="message card center-width">
                     <img src={`${process.env.PUBLIC_URL}/assets/images/chef-hat1.png`} alt="chef-hat"/>

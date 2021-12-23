@@ -1,0 +1,11 @@
+.view-recipe {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+.recipe-image {
+}
+.recipe-details {
+    margin-right: 5rem;
+}
