@@ -25,6 +25,7 @@ class GlobalState extends Component {
 
     updateLogin = () => {
         this.setState( {isLoggedIn: true} )
+        return
     }
 
 

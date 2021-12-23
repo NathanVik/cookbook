@@ -69,16 +69,8 @@ recipe_data = [
 recipe_detail_data = [
     {
         "_id": ObjectId(),
-        "ingredients": {
-            "Flour": "2 cups",
-            "Water": "1 cup",
-            "salt": "2 tsp",
-        },
-        "instructions": {
-            "Step 1": "Pour ingredients together",
-            "Step 2": "Mix em up",
-            "Step 3": "Bake It",
-        },
+        "ingredients": " 2 cups of flour, 1 cup of water, and some salt.",
+        "instructions": "mix everything together, knead it and then bake it.",
         "recipe_id": ObjectId("61b5030fa24e5316e6861bab"),
     },
 
