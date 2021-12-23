@@ -21,7 +21,7 @@ class NavBar extends Component {
                             <Link className="nav-link link" to="/home">Home</Link>
                         </li>
                         <li className="right-side">
-                            <Link className="nav-link link" to="/profile">My Profile</Link>
+                            <Link className="nav-link link" to="/myprofile">My Profile</Link>
                         </li>
                         <li className="right-side">
                             <Link className="nav-link link" to="/create-recipe">Post a New Recipe</Link>

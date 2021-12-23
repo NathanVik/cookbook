@@ -141,7 +141,7 @@ def create_recipe():
     recipe = {
         '_id': recipe_id,
         'title': recipeform['title'],
-        'user_id': recipeform['user_id'],
+        'user_id': ObjectId(recipeform['user_id']),
         'filename': filename,
     }
     detail = {
@@ -151,7 +151,7 @@ def create_recipe():
     }
     db.recipes.insert_one(recipe)
     db.details.insert_one(detail)
-    return recipe, detail
+    return "Recipe Created!"
 
 ### Get Recipe Details
 @app.route('/api/recipe/<id>')
@@ -183,6 +183,12 @@ def get_recipe_detail(id):
             result.append(recipe)
     return parse_json(result)
 
+### Delete Recipe
+@app.route('/api/recipe/<id>', methods=['DELETE'])
+@cross_origin()
+def recipe_delete(id):
+    recipe = db.recipes.find(id)
+    recipe_details = db.details.find( { "recipe_id": id } )
 
 
 

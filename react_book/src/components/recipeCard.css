@@ -41,3 +41,11 @@
 .btn-icon:hover {
     cursor: pointer;
 }
+
+.recipe-link {
+    color: var(--dark-text);
+}
+
+.recipe-link:hover {
+    
+}
