@@ -137,7 +137,7 @@ def create_recipe():
             filename = str(ObjectId())
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-    recipe_id = str(ObjectId())
+    recipe_id = ObjectId()
     recipe = {
         '_id': recipe_id,
         'title': recipeform['title'],
