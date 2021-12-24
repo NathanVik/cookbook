@@ -89,10 +89,10 @@ recipe_detail_data = [
 #     },
 # ]
 
-x = mycol.insert_many(user_data)
+# x = mycol.insert_many(user_data)
 x2 = mycol2.insert_many(recipe_data)
 x3 = mycol3.insert_many(recipe_detail_data)
 
-print(x.inserted_ids)
+# print(x.inserted_ids)
 print(x2.inserted_ids)
 print(x3.inserted_ids)

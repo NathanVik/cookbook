@@ -36,6 +36,11 @@ class CreateRecipe extends React.Component {
         console.log(myForm);
         let response = await axios.post(ServerUrl + '/api/recipe/new', myForm, { 'Content-Type': 'multipart/form-data' });
         // CREATE ERROR MESSAGES ETC
+
+        if (response.status === 200) {
+            this.props.history.push('/myprofile');
+        }
+
         console.log(response);
     };
 

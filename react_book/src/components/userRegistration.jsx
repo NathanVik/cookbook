@@ -45,7 +45,7 @@ class UserRegistration extends Component {
         
         if (response.status === 200) {
             localStorage.setItem("user", JSON.stringify(response.data));
-            this.props.history.push("/profile");
+            this.props.history.push("/myprofile");
         }
 
         console.log(response)

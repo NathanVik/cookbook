@@ -13,9 +13,9 @@ class RecipeCard extends React.Component {
     render() { 
         return (
         <div className="recipeCard card">
-            <span className="card-header">
+            {/* <span className="card-header">
                 <button className="btn-icon"><FontAwesomeIcon className="like-icon" icon={faHeart} /></button>
-            </span>
+            </span> */}
             <img src={ ServerUrl + '/static/img/' +  this.props.data.filename }/>
             <div className="card-info">
                 <Link className="link recipe-link" to={ '/recipe/' + this.props.data._id }><h2>{ this.props.data.title }</h2></Link>
